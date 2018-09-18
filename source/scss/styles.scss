@@ -1,8 +1,8 @@
 @import "./reset/reset";
 @import "./functions";
 
-$main-col: rgb(116, 81, 29);
-
+$main-col: rgb(66, 100, 143);
+$fonts: #626262;
 .web-title {
     color: lighten( set-color($main-col), 15) ;
     //font-family: 'Noto Serif KR', sans-serif;
@@ -34,22 +34,22 @@ body {
     }
 
     h1 {
-        color: darken(set-color($main-col), 90);
+        color: darken(set-color($fonts),60);
         //text-shadow:0px 0px 10px  invert($main-col, 20);     
     }
 
     h2 {
-        color: darken(set-color($main-col), 80);
+        color: darken(set-color($fonts),50);
         //text-shadow:0px 0px 10px  invert($main-col, 20);     
     }
 
     h3 {
-        color: darken(set-color($main-col), 70);
+        color: darken(set-color($fonts),40);
         //text-shadow:0px 0px 10px  invert($main-col, 20);     
     }
 
     h4 {
-        color: darken(set-color($main-col), 60);
+        color: darken(set-color($fonts),30);
         //text-shadow:0px 0px 10px  invert($main-col, 20);     
     }
 

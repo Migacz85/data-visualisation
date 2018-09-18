@@ -38,9 +38,6 @@ describe('Calculator', () => {
     
     expect(Calculator.value()).toBe("Input correct equation");
    });
-
-
-         
   });
 });
 
@@ -117,23 +114,6 @@ describe('Buttons', () => {
        
 
     });
-    // it('minus operator should have possibility to be added twice', () => {
-    //   button.minus();
-    //   let str = Calculator.equation;
-    //   let last_character = str[str.length-1];
-    //   expect( last_character).toBe('-');
-      
-    //   button.minus();
-    //   str = Calculator.equation;
-    //   last_character = str[str.length-2];
-    //   expect( last_character).toBe('-');
-      
-    //   button.minus();
-    //   str = Calculator.equation;
-    //   last_character = str[str.length-2];
-    //   expect( last_character).not.toBe('-');
-
-    // });
-   
+  
   });
 });

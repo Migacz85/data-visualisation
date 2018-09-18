@@ -1,230 +1,81 @@
-# Web template project
+# Your Project's Name
 
-The main idea here is to create a simple but powerful template that can
-be reused in the future web apps projects. That can help create faster,
-better quality projects on solid skeleton. This project also include
-“template — README.md” file from code institute that can be used as a
-guideline to create your own project with proper README.md
+One or two paragraphs providing an overview of your project.
+
+Essentially, this part is your sales pitch.
+ 
+## UX
+ 
+Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+
+In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
+- As a user type, I want to perform an action, so that I can achieve a goal.
+
+This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
 ## Features
 
-In the source folder you will find source files and mainly here developing will happen. In the build folder while you develop will be generated ready to use site.
-After finishing your project you can take this folder and deploy it.
+In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+ 
+### Existing Features
+- Feature 1 - allows users X to achieve Y, by having them fill out Z
+- ...
 
-Files in build folder:
+For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
 
-Css files built from source/*.scss files are automatically:
- - concatenated
- - autoprefixed
- - minified
- - sourcemaps
- - moved to /build/min-css/styles.css
+In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
-Js files built from source/js/*.js are automatically:
- - compiled with babel (es7) 
- - concatenated
- - autoprefixed
- - minified
- - sourcemaps
- - moved to one file /build/js/scripts.js
+### Features Left to Implement
+- Another feature idea
 
-Img are automatically:
- - files in /img are compressed and moved to build/img
+## Technologies Used
 
-All html files from source/ are moved to build/
-index.html is linked to generated files from:
+In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 
-/build/min-css/styles.css
-/build/js/scripts.js
+- [JQuery](https://jquery.com)
+    - The project uses **JQuery** to simplify DOM manipulation.
 
-README.md is modified for .html version. 
-You can live preview how it will look like in pure html.
 
-Project is automatically:
- - reloading browser using browser-sync
- - thanks to browser-sync you can see the site on your laptop and mobile at the same time when developing the app and making changes. 
+## Testing
 
-## Files
+In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
-#### gulpfile.js - All automation of the project workflow is configured here. 
-This file is for a gulp package. And is the main script where automation is triggering and described how exactly work. Gulp is using plugins that are listed in package.json file as well. The essential list of plugins for gulp used in this project:
+Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
 
-Autoprefixer (for better css support in browsers)
-https://github.com/sindresorhus/gulp-autoprefixer#readme
-- Babel - (for better javascript support in browsers)
-https://github.com/babel/gulp-babel#readme
-- Concat (for concat js, css files)
-https://github.com/gulp-community/gulp-concat#readme
-- Image optimization:
-https://github.com/sindresorhus/gulp-imagemin#readme
-- Jasmine (for automated tests)
-https://github.com/mucsi96/gulp-jasmine-livereload-task
-- Plubmer (for printing errors while developing, and keeping server running)
-https://github.com/floatdrop/gulp-plumber
-- Sass (for converting sass in to css)
-https://github.com/dlmanning/gulp-sass#readme
-- Sourcemaps (for ability to work on minified js files)
-https://github.com/gulp-sourcemaps/gulp-sourcemaps
-- Uglify (for compacting size of js files)
-https://github.com/terinjokes/gulp-uglify/
-- Watch (for observing if files you working on changed)
-https://github.com/floatdrop/gulp-watch#readme
-- Markdown (for changing README.md in to html to preview changes)
+For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
 
-The task 'gulp' is defined in task 'default'. The task 'photo' in task photo. For easy understanding this file I even left a comment for each task. 
+1. Contact form:
+    1. Go to the "Contact Us" page
+    2. Try to submit the empty form and verify that an error message about the required fields appears
+    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
+    4. Try to submit the form with all inputs valid and verify that a success message appears.
 
-##### Configuration gulpfile.js
+In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
 
-If you want to start a server from different port you can set it up on line 39:
+You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
-```
-const PORT = 9997;
-````
+If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
-If you want change strength of the photo compression you can do it here.
-Picture quality 0 (worst) to 100 (perfect).
+## Deployment
 
-```
-const QUALITY = 40; 
-```
+This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
 
-If you want to specify order how .js files will be concatenated you can specify them in array JS_ORDER. In following example script zfirst.js will be added first and then rest of the scripts.
+In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
+- Different values for environment variables (Heroku Config Vars)?
+- Different configuration files?
+- Separate git branch?
 
-```
-const JS_ORDER = ['source/js/zfirst.js', SCRIPTS_PATH];
-```
+In addition, if it is not obvious, you should also describe how to run your code locally.
 
-#### .eslintrc.json - In that file the syntax of javascript is specified. 
 
-Eslint will prompt you if your javascript code is note written with correct syntax. That's help to maintain clear code. By default, airbnb style is implemented with jasmine and es6 support. Please install eslint extension in your editor of choice to use that.
+## Credits
 
-Read more about eslint airbnb syntax: 
-https://github.com/airbnb/javascript
+### Content
+- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 
-#### SpecRunner.html - tests in jasmine.
+### Media
+- The photos used in this site were obtained from ...
 
-When running the task ```gulp jasmine-live``` this file will be generated and live reloaded each time you change the *.js files. And all jasmine tests will be shown.
+### Acknowledgements
 
-#### template - README.md  
-
-When starting new project it's important to write a good documentation. Just grab this file and rename it to README.md and edit it to project you currently developing. This file is brought by code-institute. Please check for new versions here:
-
-https://github.com/Code-Institute-Solutions/readme-template
-
-While writing documentation for github this can be useful link to:
-
-https://help.github.com/articles/basic-writing-and-formatting-syntax/
-
-#### package.json - All development packages from node package manager are listed in this file. 
-
-When you will download this project, and make ```npm install``` all of them will be installed in your node_modules folder. They are essential for this project to work.
-
-
-### Features left to implement
-
-Key features to implement to this template:
-
- - nunjucks 
- - css for README.md - to render html version exactly like on github pages
-
-### Existing Tasks 
-
-To run tasks type gulp and task name. For example: 
-```
-gulp photo
-```
-Current tasks for this project: 
-
-- jasmine-live (run the jasmine testing)
-- photo (optimize photos in src/img)
-- delete-photos (delete photos in build/img)
-- delete-build (delete whole build folder)
-- copy (copy all *html files from source to build)
-- styles (convert sass to css and put it to bulid/css and min file to build/min-css)
-- script (convert all js and put it to bulid/js)
-- reload (reload the browser)
-- server (start watching all files in project and automatically refresh the site and do following tasks)
-  - default
-  - copy
-  - script
-  - styles
-  - photo
-  - server
-
-## Technologies used:
-
-- gulp 
-
-https://gulpjs.com/
-
-- sass
-
-http://sass-lang.com/documentation/file.SASS_REFERENCE.html
-
-- babel (in this project es7 )
-
-https://github.com/babel/gulp-babel
-https://babeljs.io/
-
-- eslint 
-
-Implemented with airbnb 
-https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
-
-##  How to start ?
-
-In this particular project I had installed
-
-gulp version:
-CLI version 2.0.1
-Local version 4.0.0
-
-In order to start you need to have an installed node package manager
-
-In folder, you want to start a project type:
-```
-git clone https://github.com/Migacz85/web-template.git
-npm install
-sudo npm install gulp -g
-sudo npm i -g gulp-cli
-```
-
-After that run the command: 
-
-```
-gulp
-```
-It will make 2 things — build your project to folder 'build' and
-your project will run, and do automatically things for you. 
-
-For testing in jasmine run in second terminal:
-
-```
-gulp jasmine-live
-```
-
-## Known bugs
-
-- You need to change manually PORT number every time jasmine stops to re run,
-- Eslint is throwing errors on _spec.js - spec file for jasmine even after including 'jasmine': true in .eslintrc.json  
-
-# Npm bugs
-
-npm audit gives message:
-found 13 vulnerabilities (3 low, 8 moderate, 2 critical) in 21824 scanned packages
-  13 vulnerabilities require manual review. See the full report for details.
-
-Dependencies causing these problems:
-
-moderate:
-
-- gulp-imagemin
-- gulp-imagemin-mozjpeg
-
-low:
-
-- browser-sync
-
-critical:
-
-- jasmine-live-reloading
+- I received inspiration for this project from X

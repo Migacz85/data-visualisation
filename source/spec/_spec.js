@@ -5,39 +5,37 @@ describe('Calculator', () => {
   // before every test reset te value of current value
   beforeEach(() => {
     Calculator.current = 0;
-    Calculator.equation = "";
+    Calculator.equation = '';
   });
-  
+
 
   describe('When clicking on buttons', () => {
     it('should count current value of equation in Calculator.value', () => {
-      
       button.nine();
       button.nine();
       button.plus();
       button.nine();
-     expect(Calculator.value()).toBe(108);
-      
-     Calculator.equation = "";
-     button.seven();
-     button.plus();
-     button.six();
-     expect(Calculator.value()).toBe(13);
-     button.plus();
-     button.four()
-     expect(Calculator.value()).toBe(17);
-       
+      expect(Calculator.value()).toBe(108);
+
+      Calculator.equation = '';
+      button.seven();
+      button.plus();
+      button.six();
+      expect(Calculator.value()).toBe(13);
+      button.plus();
+      button.four();
+      expect(Calculator.value()).toBe(17);
     });
 
     it('should inform if its incorrect equation in Calculator.value', () => {
-    button.nine()   
-    expect(Calculator.value()).toBe(9);
-      
-    button.nine();
-    button.plus();
-    
-    expect(Calculator.value()).toBe("Input correct equation");
-   });
+      button.nine();
+      expect(Calculator.value()).toBe(9);
+
+      button.nine();
+      button.plus();
+
+      expect(Calculator.value()).toBe('Input correct equation');
+    });
   });
 });
 
@@ -71,49 +69,43 @@ describe('Buttons', () => {
       expect(button.plus()).toBe('+');
     });
     it('should add themselves to the end of equation', () => {
-     
       button.plus();
       let str = Calculator.equation;
-      let last_character = str[str.length-1];
-      expect( last_character).toBe('+');
-      
+      let last_character = str[str.length - 1];
+      expect(last_character).toBe('+');
+
       button.plus();
       str = Calculator.equation;
-      last_character = str[str.length-2];
-      expect( last_character).not.toBe('+');
-
+      last_character = str[str.length - 2];
+      expect(last_character).not.toBe('+');
     });
 
     it('button del should delete last string', () => {
-      Calculator.equation=0;
-      
-      button.nine()
+      Calculator.equation = 0;
+
+      button.nine();
       button.del();
       let str = Calculator.equation;
-      let last_character = str[str.length-1];
-      expect( last_character).toBe('0');
-      
-      
+      let last_character = str[str.length - 1];
+      expect(last_character).toBe('0');
+
+
       button.seven();
       button.six();
       button.del();
       str = Calculator.equation;
-      last_character = str[str.length-1];
-      expect( last_character).toBe('7');
-
+      last_character = str[str.length - 1];
+      expect(last_character).toBe('7');
     });
-    
-    it('Button C should clear equation', () => { 
-      
+
+    it('Button C should clear equation', () => {
+
       button.nine();
       button.four();
       button.plus();
 
       button.c();
-     expect(Calculator.equation).toBe("");
-       
-
+      expect(Calculator.equation).toBe('');
     });
-  
   });
 });

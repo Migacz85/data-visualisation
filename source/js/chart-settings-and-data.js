@@ -7,7 +7,7 @@ const font = 'Didact Gothic';
 const fontSize = '10';
 const bgcolor='white';
 
-let startDate='&start_date=2017-07-06'
+let startDate='&start_date=2017-03-06'
 
 // Data
 const bitcoinPriceData='https://www.quandl.com/api/v3/datasets/GDAX/BTC_EUR.csv?api_key=fzanZC3297Jsid-E8vCF'+startDate;

@@ -6,6 +6,7 @@ function drawPriceChart(data, id, width, height) {
     .await(makeGraphs);
 
   function makeGraphs(error, transactionsData) {
+    if(error) { console.log(error); }
     const a = id.substr(1);
     a.toString();
     document.getElementById(a).innerHTML = `<p>${transactionsData[0].Open} Euro </p>`;

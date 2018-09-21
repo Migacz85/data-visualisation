@@ -3,24 +3,27 @@
 
 $main-col: rgb(66, 100, 143);
 $fonts: #626262;
+
 .web-title {
-    color: lighten( set-color($main-col), 15) ;
+    color: lighten(set-color($main-col), 15);
     //font-family: 'Noto Serif KR', sans-serif;
     font-weight: 100;
 }
 
 .title {
-    margin-top:300px;
+    margin-top: 300px;
 }
+
 body {
 
     padding: 0;
     margin: 0;
     font-family: 'Didact Gothic', sans-serif;
-    background-color:lighten($main-col,65);
+    background-color: lighten($main-col, 65);
+
     li {
         color: darken(set-color($main-col), 50);
-        list-style:none;
+        list-style: none;
     }
 
     a {
@@ -38,69 +41,73 @@ body {
     }
 
     .marginTB {
-   margin-top:30px;
-   margin-bottom:0px;
+        margin-top: 30px;
+        margin-bottom: 0px;
     }
-    .wrapper{
-        width:90%;
-        margin:auto;
+
+    .wrapper {
+        width: 90%;
+        margin: auto;
         background-color: white;
     }
-     .wrapper:before, .wrapper:after {
+
+    .wrapper:before,
+    
+    .wrapper:after {
         content: "";
         position: absolute;
-        top: 235px;    
+        top: 235px;
         z-index: -1;
         display: block;
         width: 10px;
         height: 160px;
-        background: rgba(39,44,49,0.75);
+        background: rgba(39, 44, 49, 0.75);
         filter: blur(25px);
     }
-    
+
     .wrapper:after {
         @extend .wrapper:before;
-        right:5%;
+        right: 5%;
     }
 
-    h3{
-        z-index:-3;
+    h3 {
+        z-index: -3;
         background-color: white;
     }
-     h3::before{
-    @extend .wrapper:before;
-    z-index:-1;
-    height:10px;
-    width:100px;
-    top:0px;
 
-    position:relative;
-     }
+    h3::before {
+        @extend .wrapper:before;
+        z-index: -1;
+        height: 10px;
+        width: 100px;
+        top: 0px;
+        position: relative;
+    }
 
     h1 {
         @extend .marginTB;
-        color: darken(set-color($fonts),60);
+        color: darken(set-color($fonts), 60);
         //text-shadow:0px 0px 10px  invert($main-col, 20);     
-    
+
     }
 
 
     h2 {
         @extend .marginTB;
-        color: darken(set-color($fonts),50);
+        color: darken(set-color($fonts), 50);
         //text-shadow:0px 0px 10px  invert($main-col, 20);     
     }
 
     h3 {
         @extend .marginTB;
-        color: darken(set-color($fonts),40);
-        z-index:4;
-        background-color:white;
+        color: darken(set-color($fonts), 40);
+        z-index: 4;
+        background-color: white;
     }
 
     h4 {
         @extend .marginTB;
-        color: darken(set-color($fonts),30);
+        color: darken(set-color($fonts), 30);
         //text-shadow:0px 0px 10px  invert($main-col, 20);     
     }
 
@@ -109,27 +116,30 @@ body {
         color: darken(set-color($main-col), 80);
 
     }
- footer {
-     background-color: darken($main-col,0);
-     padding:30px;
-     position: relative;
-     bottom:0;
- }
- footer p {
-     color:lighten(set-color($main-col),30);
-     text-align:center;
- }
+
+    footer {
+        background-color: darken($main-col, 0);
+        padding: 30px;
+        position: relative;
+        bottom: 0;
+    }
+
+    footer p {
+        color: lighten(set-color($main-col), 30);
+        text-align: center;
+    }
 }
 
 
 // Bootstrap
 .container {
-    min-height:70vh;
-    z-index:0;
+    min-height: 70vh;
+    z-index: 0;
     background-color: white;
 
 
 }
+
 .card-body {
     //  background-color: lighten($color: $main-col, $amount: 20);
 }
@@ -137,15 +147,14 @@ body {
 .card {
     margin-top: 10px;
     border-color: lighten($main-col, 0);
-    border: dashed;
+    //   border: dashed;
 }
 
 .box-shadow {
-    box-shadow: 0 0 5px darken($main-col,10);
+    box-shadow: 0 0 5px darken($main-col, 10);
 }
 
 .bg-custom {
     background-color: darken($main-col, 0);
-    color:darken($main-col, 20);
+    color: darken($main-col, 20);
 }
-

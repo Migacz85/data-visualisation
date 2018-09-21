@@ -34,7 +34,8 @@ body {
     width: 90%;
     margin: auto;
     background-color: white; }
-  body .wrapper:before, body .wrapper:after, body h3::before, body .wrapper:after {
+  body .wrapper:before, body .wrapper:after, body h3::before,
+  body .wrapper:after {
     content: "";
     position: absolute;
     top: 235px;
@@ -84,8 +85,7 @@ body {
 
 .card {
   margin-top: 10px;
-  border-color: #42648f;
-  border: dashed; }
+  border-color: #42648f; }
 
 .box-shadow {
   box-shadow: 0 0 5px #324c6c; }

@@ -6,20 +6,25 @@ function drawVarPriceChart(data, id, width, height) {
     .await(makeVarGraph);
 
   function makeVarGraph(error, transactionsData) {
-    let max;
-    let min;
+    let max; let min; let avg;
+
 
     const a = id.substr(1);
     a.toString();
 
 
-    max = d3.max(transactionsData, d => +d.High - d.Open);
-    min = d3.min(transactionsData, d => +d.High - d.Open);
+    max = d3.max(transactionsData, d => +d.High - d.Low);
+    min = d3.min(transactionsData, d => +d.High - d.Low);
+    avg = d3.mean(transactionsData, d => +d.High - d.Low);
 
+
+    avg = avg.toFixed(0);
     max = max.toFixed(0);
-    min = min.toFixed(0);
-    document.getElementById(a).innerHTML = ` <p> Max: ${max} Average: ${((min + max) / 2)} </p>`;
-
+    //min = min.toFixed(0);
+    document.getElementById(a).innerHTML = ` <p> Max: ${max} Average: ${avg} Euro </p>`;
+    document.getElementById(a).innerHTML = ` <p> Max: ${max} Average: ${avg} Euro </p>`;
+    
+    console.log(max)
     const scale = d3.scale.linear()
       .domain([0, max - min]) // boundaries for chart
       .range([0, height - 10]); // boundaries for data
@@ -39,7 +44,15 @@ function drawVarPriceChart(data, id, width, height) {
       .attr('y', d => height - scale(d.High - d.Low))
       .attr('height', d => scale(d.High - d.Low))
       .attr('width', d => width / transactionsData.length)
-      .style('fill', chartColor)
+      //.style('fill', chartColor)
+      .style("fill", function(d) {
+        if (d.High-d.Low > avg) {   //Threshold of 15
+            return "orange";
+        } else {
+            return chartColor;
+        }
+    })
+    
       .append('svg:title')
       .text(d => `Date: ${d.Date} Variability: ${parseInt(d.High - d.Low)} Euro`);
 
@@ -56,7 +69,7 @@ function drawVarPriceChart(data, id, width, height) {
       .attr('font-size', fontSize)
       .attr('fill', 'black');
 
-    // labels
+  
     // svg.selectAll('circle')
     //   .data(transactionsData)
     //   .enter()

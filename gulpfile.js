@@ -41,7 +41,7 @@ const SPEC_PATH = 'source/spec/_spec.js';
 const JASMINE_PATH = [SCRIPTS_PATH, SPEC_PATH, CSS_PATH];
 
 // Order how js will be concatenated
-const JS_ORDER = ['source/js/main.js', SCRIPTS_PATH];
+const JS_ORDER = ['source/js/header.js', SCRIPTS_PATH];
 
 // Picture quality 0 (worst) to 100 (perfect).
 const QUALITY = 40;

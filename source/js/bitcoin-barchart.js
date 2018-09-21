@@ -1,90 +1,50 @@
-// data //https://www.quandl.com/api/v3/datasets/BCHAIN/CPTRA.csv?api_key=fzanZC3297Jsid-E8vCF
-// https://www.quandl.com/api/v3/datasets/BCHAIN/CPTRA.json?api_key=fzanZC3297Jsid-E8vCF
-// https://www.quandl.com/data/BCHAIN/CPTRA-Bitcoin-Cost-Per-Transaction
-
-// https://www.quandl.com/api/v3/datasets/GDAX/BTC_EUR.csv?api_key=fzanZC3297Jsid-E8vCF
+// Price
 queue()
-  .defer(d3.csv, 'https://www.quandl.com/api/v3/datasets/GDAX/BTC_EUR.csv?api_key=fzanZC3297Jsid-E8vCF')
+  .defer(d3.csv, bitcoinPriceData)
   .await(makeGraphs);
 
-
 function makeGraphs(error, transactionsData) {
-  const ndx = crossfilter(transactionsData);
-  document.getElementById('bitcoin').innerHTML=
-  `${transactionsData[0].Open} BTC/Euro`;
-  const parseDate = d3.time.format('%Y/%m/%d').parse;
+  document.getElementById('bitcoin').innerHTML = `${transactionsData[0].Open} BTC/Euro`;
 
-  console.log(parseDate);
-  console.log(transactionsData);
+  let max; let
+    min;
 
-  const width = 300;
-  const height = 200;
-  let max;
   max = d3.max(transactionsData, d => +d.Open);
+  min = d3.min(transactionsData, d => +d.Open);
 
-  
   const scale = d3.scale.linear()
-    .domain([0, d3.max(transactionsData, d => +d.Open)]) // boundaries for chart
+    .domain([0, max - min]) // boundaries for chart
     .range([0, height - 10]); // boundaries for data
 
   const svg = d3.select('#cost')
     .append('svg')
     .attr('width', width)
     .attr('height', height)
+    .style('background-color', bgcolor);
 
-    .style('background-color', 'white');
-
-  // bars
+  // Bars
   svg.selectAll('rect')
     .data(transactionsData)
     .enter()
     .append('rect') // append svg to div
-    .attr('x', (d, i) => width+0 - width / transactionsData.length - (i * ((width) / transactionsData.length)))
-    .attr('y', d => height - scale(d.Open))
-    .attr('height', d => scale(d.Open))
+    .attr('x', (d, i) => width - width / transactionsData.length - (i * ((width - 50) / transactionsData.length)))
+    .attr('y', d => height - scale(d.Open - min))
+    .attr('height', d => scale(d.Open - min))
     .attr('width', d => width / transactionsData.length)
-    .style('fill', 'rgb(66, 100, 143)')
+    .style('fill', chartColor)
     .append('svg:title')
-    .text(d => `Date: ${d.Date} Price: ${d.Open}`)
-    
-  
-    // price
+    .text(d => `Date: ${d.Date} Price: ${d.Open}`);
+
+  // Price
   svg.selectAll('text')
     .data(transactionsData)
     .enter()
     .append('text')
-    .text((d, i) => parseInt(((i + 1) * 0.1) * max))
+    .text((d, i) => parseInt(min + ((max - min) * (i * 0.1))))
     .attr('text-anchor', 'middle')
     .attr('x', () => 20)
-    .attr('y', (d, i) => height-5 - (i * (height / 10)))
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '11px')
+    .attr('y', (d, i) => height - 5 - (i * (height / 10)))
+    .attr('font-family', font)
+    .attr('font-size', fontSize)
     .attr('fill', 'black');
-
-  //   // date
-  //   svg.selectAll('circle')
-  //     .data(transactionsData)
-  //     .enter()
-  //     .append('text')
-  //     .text((d, i) => d.Date)
-  //     .attr('text-anchor', 'middle')
-  //     .attr('x', (d, i) => width - (i * (width / 10)))
-  //     .attr('y', (d, i) => height - 10)
-  //     .attr('font-family', 'sans-serif')
-  //     .attr('font-size', '11px')
-  //     .attr('fill', 'white');
-
-  // labels
-  svg.selectAll('text')
-    .data(transactionsData)
-    .enter()
-    .append('text')
-    .text(d => (d.High - d.Open).toFixed(0))
-    .attr('text-anchor', 'middle')
-    .attr('x', (d, i) => width - (i * (width / transactionsData.length)))
-    .attr('y', d => height - scale(d.Open))
-
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '1px')
-    .attr('fill', 'white');
 }

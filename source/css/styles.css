@@ -6,10 +6,13 @@
   color: white;
   font-weight: 100; }
 
+.title {
+  margin-top: 300px; }
+
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
   background-color: white; }
   body li {
     color: #42648f;
@@ -43,8 +46,28 @@ body {
     color: white;
     text-align: center; }
 
+.container:before, .container:after, .container:after {
+  content: "";
+  position: absolute;
+  top: 235px;
+  z-index: -1;
+  display: block;
+  width: 10px;
+  height: 160px;
+  background: rgba(39, 44, 49, 0.75);
+  -webkit-filter: blur(25px);
+  filter: blur(25px); }
+
+.rect {
+  background-image: linear-gradient(-90deg, red, yellow); }
+
+.container:after {
+  right: 130px; }
+
 .container {
-  min-height: 70vh; }
+  min-height: 70vh;
+  z-index: 0;
+  background-color: white; }
 
 .card {
   margin-top: 10px;

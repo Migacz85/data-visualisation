@@ -57,16 +57,16 @@ function drawVarPriceChart(data, id, width, height) {
       .attr('fill', 'black');
 
     // labels
-    svg.selectAll('circle')
-      .data(transactionsData)
-      .enter()
-      .append('text')
-      .text(d => (d.High - d.Open).toFixed(0))
-      .attr('text-anchor', 'middle')
-      .attr('x', (d, i) => width - (i * (width / transactionsData.length)))
-      .attr('y', d => height - scale(d.Open))
-      .attr('font-family', font)
-      .attr('font-size', fontSize)
-      .attr('fill', 'black');
+    // svg.selectAll('circle')
+    //   .data(transactionsData)
+    //   .enter()
+    //   .append('text')
+    //   .text(d => (d.High - d.Open).toFixed(0))
+    //   .attr('text-anchor', 'middle')
+    //   .attr('x', (d, i) => width - (i * (width / transactionsData.length)))
+    //   .attr('y', d => height - scale(d.Open))
+    //   .attr('font-family', font)
+    //   .attr('font-size', fontSize)
+    //   .attr('fill', 'black');
   }
 }

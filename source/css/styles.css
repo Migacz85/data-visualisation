@@ -27,12 +27,43 @@ body {
   body .container p {
     margin-top: 50px;
     margin-bottom: 50px; }
+  body .marginTB, body h1, body h2, body h3, body h4, body p {
+    margin-top: 30px;
+    margin-bottom: 0px; }
+  body .wrapper {
+    width: 90%;
+    margin: auto;
+    background-color: white; }
+  body .wrapper:before, body .wrapper:after, body h3::before, body .wrapper:after {
+    content: "";
+    position: absolute;
+    top: 235px;
+    z-index: -1;
+    display: block;
+    width: 10px;
+    height: 160px;
+    background: rgba(39, 44, 49, 0.75);
+    -webkit-filter: blur(25px);
+    filter: blur(25px); }
+  body .wrapper:after {
+    right: 5%; }
+  body h3 {
+    z-index: -3;
+    background-color: white; }
+  body h3::before {
+    z-index: -1;
+    height: 10px;
+    width: 100px;
+    top: 0px;
+    position: relative; }
   body h1 {
     color: #494949; }
   body h2 {
     color: #626262; }
   body h3 {
-    color: #7c7c7c; }
+    color: #7c7c7c;
+    z-index: 4;
+    background-color: white; }
   body h4 {
     color: #959595; }
   body p {
@@ -45,24 +76,6 @@ body {
   body footer p {
     color: white;
     text-align: center; }
-
-.container:before, .container:after, .container:after {
-  content: "";
-  position: absolute;
-  top: 235px;
-  z-index: -1;
-  display: block;
-  width: 10px;
-  height: 160px;
-  background: rgba(39, 44, 49, 0.75);
-  -webkit-filter: blur(25px);
-  filter: blur(25px); }
-
-.rect {
-  background-image: linear-gradient(-90deg, red, yellow); }
-
-.container:after {
-  right: 130px; }
 
 .container {
   min-height: 70vh;

@@ -1,33 +1,48 @@
-// Bitcoin variability
+// Price
 
-function drawVarPriceChart(data, id, width, height) {
+function drawVarPriceChart(data, id, width, height, currency) {
+
+
+
   queue()
     .defer(d3.csv, data)
-    .await(makeVarGraph);
+    .await(makeGraphs);
 
-  function makeVarGraph(error, transactionsData) {
-    let max; let min; let avg;
-
-
+  function makeGraphs(error, transactionsData) {
+    if (error) { console.log(error); }
     const a = id.substr(1);
     a.toString();
+    document.getElementById(a).innerHTML = `<p>${transactionsData[0].Open} ${currency} </p>`;
 
+    let max; 
+    let min;
+    let firstDate;
+    let lastDate;
 
-    max = d3.max(transactionsData, d => +d.High - d.Low);
-    min = d3.min(transactionsData, d => +d.High - d.Low);
-    avg = d3.mean(transactionsData, d => +d.High - d.Low);
-
+    max = d3.max(transactionsData, d => +d.High-d.Low);
+    min = d3.min(transactionsData, d => +d.High-d.Low);
+    let avg = d3.mean(transactionsData, d => +d.High - d.Low);
+    firstDate = d3.min(transactionsData, d => d.Date);
+    lastDate = d3.max(transactionsData, d => d.Date);
+    
 
     avg = avg.toFixed(0);
     max = max.toFixed(0);
     //min = min.toFixed(0);
-    document.getElementById(a).innerHTML = ` <p> Max: ${max} Average: ${avg} Euro </p>`;
-    document.getElementById(a).innerHTML = ` <p> Max: ${max} Average: ${avg} Euro </p>`;
+    document.getElementById(a).innerHTML = ` <p> Max: ${max} Average: ${avg} ${currency} </p>`;
     
-    console.log(max)
+
+    let x = d3.time.scale()
+      .domain([new Date(firstDate), new Date(lastDate)])
+      .range([10, width-41]);   // Left right position for date chart
+
+    let xAxis = d3.svg.axis()
+      .scale(x);
+
+
     const scale = d3.scale.linear()
-      .domain([0, max - min]) // boundaries for chart
-      .range([0, height - 10]); // boundaries for data
+      .domain([0, max - min ]) // Boundaries for chart
+      .range([0, height - 10 - marginBottom]); // boundaries for data
 
     const svg = d3.select(id)
       .append('svg')
@@ -35,26 +50,33 @@ function drawVarPriceChart(data, id, width, height) {
       .attr('height', height)
       .style('background-color', bgcolor);
 
-    // Bars
+
     svg.selectAll('rect')
       .data(transactionsData)
       .enter()
       .append('rect') // append svg to div
       .attr('x', (d, i) => width + 0 - width / transactionsData.length - (i * ((width - 50) / transactionsData.length)))
-      .attr('y', d => height - scale(d.High - d.Low))
+      .attr('y', d => height - marginBottom - scale(d.High - d.Low))
       .attr('height', d => scale(d.High - d.Low))
       .attr('width', d => width / transactionsData.length)
-      //.style('fill', chartColor)
-      .style("fill", function(d) {
-        if (d.High-d.Low > avg) {   //Threshold of 15
-            return "orange";
-        } else {
-            return chartColor;
-        }
-    })
-    
-      .append('svg:title')
-      .text(d => `Date: ${d.Date} Variability: ${parseInt(d.High - d.Low)} Euro`);
+      .style('fill', 'white')
+     
+
+     
+    svg.selectAll('rect')
+    .transition()
+    .duration(1500)
+    .style("fill",chartColor)
+    .transition()
+    .duration(3000)
+   .style("fill", function(d) {
+      if (d.High-d.Low > avg) {   //Threshold of 15
+          return "orange";
+      } else {
+          return chartColor;
+      }
+  })
+
 
     // Price
     svg.selectAll('text')
@@ -64,22 +86,31 @@ function drawVarPriceChart(data, id, width, height) {
       .text((d, i) => parseInt(min + ((max - min) * (i * 0.1))))
       .attr('text-anchor', 'middle')
       .attr('x', () => 20)
-      .attr('y', (d, i) => height + parseInt(fontSize) - (i * (height / 10)))
+      .attr('y', (d, i) => height - marginBottom - (i * ((height-marginBottom-fontSize) / 10)))
       .attr('font-family', font)
       .attr('font-size', fontSize)
       .attr('fill', 'black');
 
-  
-    // svg.selectAll('circle')
-    //   .data(transactionsData)
-    //   .enter()
-    //   .append('text')
-    //   .text(d => (d.High - d.Open).toFixed(0))
-    //   .attr('text-anchor', 'middle')
-    //   .attr('x', (d, i) => width - (i * (width / transactionsData.length)))
-    //   .attr('y', d => height - scale(d.Open))
-    //   .attr('font-family', font)
-    //   .attr('font-size', fontSize)
-    //   .attr('fill', 'black');
+      
+
+     // Date
+         let tmp=height-marginBottom;
+         
+         svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(40," + tmp + ")")
+        .call(xAxis)
+        .selectAll("text")
+        .attr("y", 0)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(90)")
+        .attr('font-size', fontSize)
+        .style("text-anchor", "start");
+
+
+
   }
 }
+
+

@@ -1,12 +1,9 @@
 // This javascript file is last.
-// Draw charts at
 
-drawPriceChart(etherPriceData,'#ether',width,height);
-drawPriceChart(bitcoinPriceData,'#bitcoin',width,height);
+drawPriceChart(etherPriceData,'#ether',width,height, "Euro");
+drawPriceChart(bitcoinPriceData,'#bitcoin',width,height, "$");
+drawPriceChart(litecoinPriceData,'#litecoin',width,height, "Euro");
 
-drawVarPriceChart(etherPriceData,'#ether-var',width,height);
-drawVarPriceChart(bitcoinPriceData,'#bitcoin-var',width,height);
-
-drawPriceChart(litecoinPriceData,'#litecoin',width,height);
-drawVarPriceChart(litecoinPriceData,'#litecoin-var',width,height);
-
+drawVarPriceChart(etherPriceData,'#ether-var',width,height, "Euro");
+drawVarPriceChart(bitcoinPriceData,'#bitcoin-var',width,height, "$");
+drawVarPriceChart(litecoinPriceData,'#litecoin-var',width,height, "Euro");

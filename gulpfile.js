@@ -17,6 +17,7 @@ const jasmine = require('gulp-jasmine-livereload-task');
 const minifyCss = require('gulp-minify-css');
 const browserSync = require('browser-sync').create();
 const markdown = require('gulp-markdown');
+const eslint = require('gulp-eslint');
 
 
 const minify = composer(uglifyjs, console);
@@ -64,6 +65,19 @@ gulp.task('readme', () => gulp.src('README.md').pipe(markdown()).pipe(gulp.dest(
 // Works without auto-reloading the page
 // Official tip from jasmine:
 // https://github.com/jasmine/gulp-jasmine-browser
+
+gulp.task('eslint', () => {
+  gulp.src(['source/js/PageVariability/**/*.js']) 
+      // eslint() attaches the lint output to the "eslint" property
+      // of the file object so it can be used by other modules.
+      .pipe(eslint())
+      // eslint.format() outputs the lint results to the console.
+      // Alternatively use eslint.formatEach() (see Docs).
+      .pipe(eslint.format())
+      // To have the process exit with an error code (1) on
+      // lint error, return the stream and pipe to failAfterError last.
+      .pipe(eslint.failAfterError());
+});
 
 gulp.task('jasmine', () => {
   const filesForTest = JASMINE_PATH;

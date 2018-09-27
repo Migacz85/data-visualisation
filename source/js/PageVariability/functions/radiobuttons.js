@@ -1,26 +1,15 @@
-function year() {
+// User inputs from radiobutons
+/* eslint no-undef:  0 */
+function drawChartsSelectMonths(numberMonths) {
+  if (loading == 6) { // prevent starting this functions while user is clicking on radio buttons to fast
     loading = 0;
-    drawCharts(setDateScope(12));
+    drawCharts(setDateScope(numberMonths));
+  }
 }
-
-function half() {
-    loading = 0;
-    drawCharts(setDateScope(6));
-}
-
-function quater() {
-    loading = 0;
-    drawCharts(setDateScope(3));
-}
-
-
-function month() {
-    loading = 0;
-    drawCharts(setDateScope(1));
-}
-
 
 function alldata() {
+  if (loading == 6) {
     loading = 0;
-    drawCharts('2017-06-01');
+    drawCharts('2017-07-01');
+  }
 }

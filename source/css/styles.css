@@ -81,8 +81,7 @@ body {
 #chart1 .x.axis text {
   text-anchor: start !important;
   -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-  padding: 5px; }
+  transform: rotate(90deg); }
 
 .axis line,
 .axis path {

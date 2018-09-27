@@ -7,6 +7,9 @@ function drawPriceChart(data, id, width, height, currency) {
     .await(makeGraphs);
 
   function makeGraphs(error, transactionsData) {
+    loading++;
+    progress(loading)
+    console.log(loading)
     if (error) { console.log(error); }
     const a = id.substr(1);
     a.toString();

@@ -7,4 +7,4 @@ const chartColor='rgb(66, 170, 143)';
 const font = 'Didact Gothic';
 const fontSize = '10';
 const bgcolor='white';
-
+let loading=0;

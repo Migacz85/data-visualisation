@@ -67,9 +67,12 @@
 
             <div class="row" align="center">
                 <div class="col-md-12">
-                    <div id="date" >
-
                     
+                        <div id="progress-bar" class="progress" >
+                                <div id="progress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                    <div id="date" >
                         <input type="radio" id="r3" name="rate" onclick="alldata()" checked> All data
                         <input type="radio" id="r2" name="rate" onclick="year()"> Last Year
                         <input type="radio" id="r4" name="rate" onclick="half()"> Last Half year
@@ -77,6 +80,8 @@
                         <input type="radio" id="r2" name="rate" onclick="month()"> Last Month
                     </div>
                     
+        
+
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
                     <h3 id="bit">Bitcoin Price</h3>

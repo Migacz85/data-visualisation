@@ -9,7 +9,12 @@ function drawVarPriceChart(data, id, width, height, currency) {
     .await(makeGraphs);
 
   function makeGraphs(error, transactionsData) {
-    if (error) { console.log(error); }
+    loading++;
+    progress(loading)
+    console.log(loading)
+    if (error) { console.log(error);
+    
+    }
     const a = id.substr(1);
     a.toString();
     document.getElementById(a).innerHTML = `<p>${transactionsData[0].Open} ${currency} </p>`;

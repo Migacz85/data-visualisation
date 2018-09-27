@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <!-- metadata for browsers -->
+    <meta name="description" content="This is an example of a meta description. This will often show up in search results.">
+    <meta name="keywords" content="Web template, basic web project, web boilerplate, gulp, sass, babel">
+    <meta name="author" content="Marcin Mrugacz">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Project js and css files -->
+    <link rel="stylesheet" href="min-css/styles.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+
+
+    <title>Data Visualization</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+            <a href="index.html" class="navbar-brand">Data Visualization</a>
+            <button class="navbar-toggler" data-target="#navigation" data-control="navigation" data-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="variability.html" class="nav-link">Variability</a>
+                    </li>
+
+                    <!-- Optional dropdown -->
+                    <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="preview" href="#" role="button"
+                                    aria-haspopup="true" aria-expanded="false">Options</a>
+                                <div class="dropdown-menu" aria-lableledby="preview">
+                                    <a class="dropdown-item" href="#task" class="smooth-goto">Tasks</a>
+                                    <a class="dropdown-item" href="#settings" id="setting">Settings</a>
+        
+                                </div>
+                            </li> -->
+                    <li class="nav-item active">
+                        <a href="marketcap.html " class="nav-link">Market Cap</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+        <p></p>
+        <div class="container">
+<div class="row">
+    <div class="col">
+            <h4>Market Capitalization</h4>
+<div id="type-selector"> </div>
+<div id="chart1"> </div>
+<div id="chart2"> </div>
+    </div>
+</div>
+           
+
+        </div> <!-- wrapper  -->
+    </main>
+
+    <footer>
+        <p>Data Visualization 2018</p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!-- library for graphs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+    <!-- project bundled scripts -->
+    <script src="js/market.js"></script>
+</body>
+
+</html>

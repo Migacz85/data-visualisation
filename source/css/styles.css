@@ -78,21 +78,19 @@ body {
     color: white;
     text-align: center; }
 
+#chart1 .x.axis text {
+  text-anchor: start !important;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  padding: 5px; }
+
 .axis line,
 .axis path {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges; }
 
-button {
-  display: inline-block;
-  position: relative;
-  top: 0;
-  right: 0px;
-  width: 20px; }
-
 .container {
-  min-height: 70vh;
   z-index: 0;
   background-color: white; }
 

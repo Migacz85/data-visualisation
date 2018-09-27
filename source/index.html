@@ -23,21 +23,25 @@
 
 <body>
 
+</header>
+</header>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
-            <a href="#" class="navbar-brand">Data Visualization</a>
+            <a href="index.html" class="navbar-brand">Data Visualization</a>
             <button class="navbar-toggler" data-target="#navigation" data-control="navigation" data-toggle="collapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navigation">
                 <ul class="nav navbar-nav">
                     <li class="nav-item active">
-                        <a href="#" class="nav-link">Home</a>
+                        <a href="index.html" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#feature" class="nav-link">Main Feature</a>
+                        <a href="variability.html" class="nav-link">Variability</a>
                     </li>
-                    <li class="nav-item dropdown">
+
+                    <!-- Optional dropdown -->
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="preview" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Options</a>
                         <div class="dropdown-menu" aria-lableledby="preview">
@@ -45,101 +49,70 @@
                             <a class="dropdown-item" href="#settings" id="setting">Settings</a>
 
                         </div>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
-                        <a href="#try" class="nav-link">Try this</a>
+                        <a href="marketcap.html" class="nav-link">Market Cap</a>
                     </li>
 
                 </ul>
             </div>
         </nav>
     </header>
+
     <main>
         <p></p>
 
 
-        <div class="wrapper">
-
-
-            <div class="row" align="center">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-                    <h3 id="bit">Bitcoin Price</h3>
-                    <div id="bitcoin"></div>
-
-
+        <div class="container">
+            <div class="row" >
+                <div class="col-md-12 col-sm-12" align='center'>
+                    <h3>Data visualisation page</h3>
                 </div>
-                <div id="bitcoin-variability" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-
-                    <h3>Bitcoin Price Variability </h3>
-
-                    <div id="bitcoin-var"></div>
+                <div class="col-md-12 col-sm-12" aling='center'>
+                        <!-- <h4>Variability of crypto currency</h4> -->
                 </div>
-            </div>
-            <div class="row" align="center">
-                <div class="col-xs-12 col-md-6">
+                <div class="col-sm-12 col-md-6">
+                       <h5>What I can find here?</h5> 
+                    <p> 
+                     On page <a href="variability.html" target="_blank">variability</a> you will find actual price charts of: </p>
+                    <ul>
+                        <li>Bitcoin</li>
+                        <li>Etherum</li>
+                        <li>Litecoin</li>
+                    </ul>
+                    
 
-                    <h3>Ether Price</h3>
-
-                    <div id="ether"></div>
-
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <h3>Ether Price Variability </h3>
-
-                    <div id="ether-var"></div>
-
-                </div>
-            </div>
-
-            <div class="row" align="center">
-                <div class=" col-xs-12 col-md-6" >
-                <h3>Litecoin Price</h3>
-
-                <div id="litecoin"></div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <h3>Litecoin Price Variability</h3>
-
-                <div id="litecoin-var"></div>
-            </div>
-        </div>
-
-        <h3 align="center" id="feature">Statistics</h3>
-
-        <div class="row text-center">
-
-            <div class="col">
-                <div class="card">
-                    <div class="card-header">
-                       Bitcoin
+                    <p>On <a href="marketcap.html" target="_blank">Market capitalization page</a>  
+                    you can find analyse of whole crypto currency market.
+                    </p>
                     </div>
-                    Chart
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        Ether
+                    <div class="col-sm-12 col-md-6">
+                            <h5>What chart's are representing?</h5>
+                            <h6>On<a href="variability.html" target="_blank"> Variability </a> page: </h6>  
+                    <p>   Charts are created in such a way that periods where variability is higher than average are colored 
+                        on yellow. You can simply see that abnormal spike in price: 
+                        <ul>
+                            <li> Started in October 2017</li>
+                            <li> Exploded January 2018 </li>
+                            <li> Normalized in July 2018 </li>
+                        </ul>
+                        You can <a href="variability.html" target="_blank">analyse this</a> by yourself.
+                        Also if you will look and compare when this phenomenon happen.
+                        It looks like it started firstly on Bitcoin in November, 
+                        then after on Etherum half December and last one was Litecoin in February 2018
+                        <p></p>
+                        <h6><a href="marketcap.html" target="_blank">  Market Cap </a> </h6>  
+                        <p>Explanation of charts from market capitalization here</p>
                     </div>
-                    Chart
-                </div>
-            </div>
-
-
-            <div class="col">
-                <div class="card">
-                    <div class="card-header">
-                        Litecoin
-                    </div>
-                    Chart
+                     
+                    
                 </div>
             </div>
         </div>
+    </main>
 
 
-
-        </div> <!-- wrapper  -->
+    </div> <!-- wrapper  -->
     </main>
     <footer>
         <p>Data Visualization 2018</p>
@@ -159,8 +132,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-    <!-- project bundled scripts -->
-    <script src="js/scripts.js"></script>
+
 </body>
 
 </html>

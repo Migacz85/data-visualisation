@@ -131,6 +131,12 @@ body {
 }
 
 // Charts
+
+ #chart1 .x.axis text {
+    // display:none;
+   text-anchor: start !important;
+   transform: rotate(90deg);
+padding:5px;} 
   .axis line,
   .axis path {
     fill: none;
@@ -138,21 +144,11 @@ body {
     shape-rendering: crispEdges;
   }
   
-button {
-    display:inline-block;
-    position: relative;
-    top:0;
-    right:0px;
-    width:20px;
-}
-
 // Bootstrap
 .container {
-    min-height: 70vh;
+    //min-height: 70vh;
     z-index: 0;
     background-color: white;
-
-
 }
 
 .card-body {

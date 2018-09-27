@@ -29,9 +29,12 @@ const BUILD_IMG_PATH = 'build/img/'; // Automated task: Compress new photos from
 const BUILD_JS_PATH = 'build/js/'; // Automated task: Join all js files
 
 // Source paths
-const SOURCE_PATH = 'source/*html';
+const COPY_PATH = ['source/*html','source/data/*'];
 const CSS_PATH = 'source/css'; // Automated task: put here a copy of css files. For reading only purpose.
 const SCRIPTS_PATH = 'source/js/**/*.js';
+const SCRIPTS_FOLDER = 'source/js/'
+const SCRIPTS_P_MARKET = SCRIPTS_FOLDER+'PageMarket/'
+const SCRIPTS_P_VARIABILITY = SCRIPTS_FOLDER+'PageVariability/'
 const SCSS_PATH = 'source/scss/**/*.scss';
 const IMG_PATH = 'source/img/**/*';
 
@@ -41,7 +44,8 @@ const SPEC_PATH = 'source/spec/_spec.js';
 const JASMINE_PATH = [SCRIPTS_PATH, SPEC_PATH, CSS_PATH];
 
 // Order how js will be concatenated
-const JS_ORDER = ['source/js/chart-settings-and-data.js', SCRIPTS_PATH, 'source/js/draw-chart.js'];
+const JS_ORDER_VARIABILITY = [SCRIPTS_P_VARIABILITY+'chart-settings-and-data.js', SCRIPTS_P_VARIABILITY+'/**/*.js', SCRIPTS_P_VARIABILITY+'draw-chart.js'];
+const JS_ORDER_MARKET=[SCRIPTS_P_MARKET+'**/*.js']
 
 // Picture quality 0 (worst) to 100 (perfect).
 const QUALITY = 40;
@@ -94,7 +98,7 @@ gulp.task('delete-build', () => gulp.src(BUILD_PATH, {
   .pipe(clean()));
 
 gulp.task('copy', () => gulp
-  .src(SOURCE_PATH)
+  .src(COPY_PATH)
   .pipe(gulp.dest(BUILD_PATH)));
 
 // SCSS automation
@@ -116,8 +120,8 @@ gulp.task('styles', () => gulp.src(SCSS_PATH)
   .pipe(sourcemaps.write()) // how files was look like after?
   .pipe(gulp.dest(BUILT_MIN_CSS_PATH)));
 
-// JS automation
-gulp.task('script', () => gulp.src(JS_ORDER)
+// JS automationT
+gulp.task('script', () => gulp.src(JS_ORDER_VARIABILITY)
   .pipe(plumber(function (err) {
     console.log('Java script errors:');
     console.log(err);
@@ -128,9 +132,24 @@ gulp.task('script', () => gulp.src(JS_ORDER)
     presets: ['@babel/env'],
   }))
   .pipe(minify())
-  .pipe(concat('scripts.js'))
+  .pipe(concat('variability.js'))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest(BUILD_JS_PATH)));
+
+  gulp.task('script2', () => gulp.src(JS_ORDER_MARKET)
+  .pipe(plumber(function (err) {
+    console.log('Java script errors:');
+    console.log(err);
+    this.emit('end');
+  }))
+  .pipe(sourcemaps.init())
+  .pipe(babel({
+    presets: ['@babel/env'],
+  }))
+  .pipe(minify())
+  .pipe(concat('market.js'))
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest(BUILD_JS_PATH)));  
 
 // Reload the webpage
 gulp.task('reload', () => {
@@ -141,12 +160,13 @@ gulp.task('reload', () => {
 // Static server
 gulp.task('server', () => {
   browserSync.init({
-    files: ['build/index.html', 'README.html'],
+    files: ['build/'],
     server: {
-      baseDir: './build',
+      baseDir: './build/',
     },
   });
-  gulp.watch('source/js/**/*js', gulp.series('script'));
+  gulp.watch('source/js/PageVariability/**/*.js', gulp.series('script'));
+  gulp.watch('source/js/PageMarket/**/*.js', gulp.series('script2'));
   gulp.watch(SCSS_PATH, gulp.series('styles'));
   gulp.watch('source/img/**/*', gulp.series('delete-photos'));
   gulp.watch('source/img/**/*', gulp.series('photo'));
@@ -159,5 +179,5 @@ gulp.task('server', () => {
 
 
 // Rebuild whole project and run the server
-gulp.task('default', gulp.series('delete-build', 'copy', 'script', 'styles', 'photo', 'readme', 'server'), () => {
+gulp.task('default', gulp.series('delete-build', 'copy', 'script', 'script2', 'styles', 'photo', 'readme', 'server'), () => {
 });

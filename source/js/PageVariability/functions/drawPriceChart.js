@@ -50,9 +50,10 @@ function drawPriceChart(data, id, width, height, currency) {
       .attr('height', height)
       .style('background-color', bgcolor)
       // .call(d3.behavior.zoom().on("zoom", function () {
+      //   console.log(d3.event.translate)
       //   svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
       // }))
-      //.append("g")
+      .append("g")
       let t=d3
       .transition()
       .duration(4500)
@@ -73,6 +74,7 @@ function drawPriceChart(data, id, width, height, currency) {
       .style('fill', 'white')
       .append('svg:title')
       .text(d => `Date: ${d.Date} Price: ${d.High}`)
+      
       .append("g");
    
       
@@ -87,7 +89,7 @@ function drawPriceChart(data, id, width, height, currency) {
       .data(transactionsData)
       .enter()
       .append('text')
-      .text((d, i) => parseInt(min + ((max - min) * (i * 0.1))))
+      .text((d, i) => parseInt(min + ((max - min) * (i * 0.1)  )))
       .attr('text-anchor', 'middle')
       .attr('x', () => 20)
       .attr('y', (d, i) => height-marginBottom-fontSize + parseInt(fontSize) - (i * ((height-marginBottom-fontSize) / 10)))

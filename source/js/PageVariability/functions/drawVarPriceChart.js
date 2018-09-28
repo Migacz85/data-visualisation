@@ -1,48 +1,39 @@
+/* eslint no-unused-vars: 0 no-undef: 0 */
 // Draw price chart
 
 function drawVarPriceChart(data, id, width, height, currency) {
-  queue()
-    .defer(d3.csv, data)
-    .await(makeGraphs);
-
   function makeGraphs(error, transactionsData) {
-    loading++;
+    loading += 1;
     progress(loading);
-    
+
     if (error) {
-    console.log(error);
+      console.log(error);
     }
     const a = id.substr(1);
     a.toString();
     document.getElementById(a).innerHTML = `<p>${transactionsData[0].Open} ${currency} </p>`;
 
-    let max;
-    let min;
-    let firstDate;
-    let lastDate;
 
-    max = d3.max(transactionsData, d => +d.High - d.Low);
-    min = d3.min(transactionsData, d => +d.High - d.Low);
-    let avg = d3.mean(transactionsData, d => +d.High - d.Low);
-    firstDate = d3.min(transactionsData, d => d.Date);
-    lastDate = d3.max(transactionsData, d => d.Date);
-
-
-
-    avg = avg.toFixed(1);
-    max = max.toFixed(1);
-    //min = min.toFixed(1);
+    const max = d3.max(transactionsData, d => +d.High - d.Low).toFixed(1);
+    const min = d3.min(transactionsData, d => +d.High - d.Low);
+    const avg = d3.mean(transactionsData, d => +d.High - d.Low).toFixed(1);
+    const firstDate = d3.min(transactionsData, d => d.Date);
+    const lastDate = d3.max(transactionsData, d => d.Date);
 
     // Print stats
-    console.log(a)
-      document.getElementById(a+'-stat').innerHTML=`
-      <li class="list-group-item">Dates: ${firstDate} to ${lastDate}</li>
-      <li class="list-group-item">Max Price: ${max} ${currency}</li>
-      <li class="list-group-item">Min Price: ${min.toFixed(1)} ${currency}</li>
-      <li class="list-group-item">Average Variability in Price: ${avg} ${currency}</li>
-      `
-      
-  
+    
+    document.getElementById(`${a}-stat`).innerHTML = `
+      <li class="list-group-item">Dates:</li>
+      <li class="list-group-item">${firstDate} to ${lastDate}</li>
+      <li class="list-group-item">Maximal change in price per day: </li>
+      <li class="list-group-item"> ${max} ${currency}</li>
+      <li class="list-group-item">Minimal change in price per day: </li>
+      <li class="list-group-item"> ${min.toFixed(1)} ${currency}</li>
+      <li class="list-group-item">Average Variability in Price:</li>
+      <li class="list-group-item"> ${avg} ${currency}</li>
+      `;
+
+
     // min = min.toFixed(0);
     document.getElementById(a).innerHTML = ` <p> Max: ${max} Average: ${avg} ${currency} </p>`;
 
@@ -70,12 +61,11 @@ function drawVarPriceChart(data, id, width, height, currency) {
       .data(transactionsData)
       .enter()
       .append('rect') // append svg to div
-      .attr('x', (d, i) => width + 0 - width / transactionsData.length - (i * ((width - 50) / transactionsData.length)))
+      .attr('x', (d, i) => width - width / transactionsData.length - (i * ((width - 50) / transactionsData.length)))
       .attr('y', d => height - marginBottom - scale(d.High - d.Low))
       .attr('height', d => scale(d.High - d.Low))
       .attr('width', d => width / transactionsData.length)
       .style('fill', 'white');
-
 
 
     svg.selectAll('rect')
@@ -85,13 +75,11 @@ function drawVarPriceChart(data, id, width, height, currency) {
       .transition()
       .duration(3000)
       .style('fill', (d) => {
-      if (d.High-d.Low > avg) {   //Threshold of 15
-          return "orange";
-      } else {
-          return chartColor;
-      }
-  });
-
+        if (d.High - d.Low > avg) { // Threshold of 15
+          return 'orange';
+        }
+        return chartColor;
+      });
 
     // Price
     svg.selectAll('text')
@@ -111,7 +99,7 @@ function drawVarPriceChart(data, id, width, height, currency) {
 
     svg.append('g')
       .attr('class', 'x axis')
-      .attr('transform', 'translate(40,' + tmp + ')')
+      .attr('transform', `translate(40,${tmp})`)
       .call(xAxis)
       .selectAll('text')
       .attr('y', 0)
@@ -121,5 +109,8 @@ function drawVarPriceChart(data, id, width, height, currency) {
       .attr('font-size', fontSize)
       .style('text-anchor', 'start');
   }
-  return 'done';
+
+  queue()
+    .defer(d3.csv, data)
+    .await(makeGraphs);
 }

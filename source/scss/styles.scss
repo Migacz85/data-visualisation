@@ -51,7 +51,7 @@ body {
         background-color: white;
     }
 
-    .wrapper:before,
+    /*.wrapper:before,
     
     .wrapper:after {
         content: "";
@@ -63,11 +63,11 @@ body {
         height: 160px;
         background: rgba(39, 44, 49, 0.75);
         filter: blur(25px);
-    }
+    } */
 
     .wrapper:after {
         @extend .wrapper:before;
-        right: 5%;
+    //    right: 5%;
     }
 
     h3 {
@@ -129,6 +129,11 @@ body {
         text-align: center;
     }
 }
+// Radio
+
+#r1, #r2, #r3, #r4, #r5 {
+    margin-left:10px;
+}
 
 // Charts
 
@@ -146,19 +151,13 @@ body {
   
 // Bootstrap
 .container {
-    //min-height: 70vh;
     z-index: 0;
     background-color: white;
-}
-
-.card-body {
-    //  background-color: lighten($color: $main-col, $amount: 20);
 }
 
 .card {
     margin-top: 10px;
     border-color: lighten($main-col, 0);
-    //   border: dashed;
 }
 
 .box-shadow {
@@ -168,4 +167,23 @@ body {
 .bg-custom {
     background-color: darken($main-col, 0);
     color: darken($main-col, 20);
+}
+
+@media only screen and (max-width: 600px)   {
+   .wrapper {
+        width: 100%;
+        
+        
+    }
+    .wrapper:after, .wrapper:before {
+        display:none;
+    }
+    .check {
+        display:block;
+    }
+}
+@media only screen and (min-width: 601px)   { 
+    .check {
+        display:inline;
+    }
 }

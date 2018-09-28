@@ -13,7 +13,20 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Didact Gothic', sans-serif;
-  background-color: white; }
+  background-color: white;
+  /*.wrapper:before,
+    
+    .wrapper:after {
+        content: "";
+        position: absolute;
+        top: 235px;
+        z-index: -1;
+        display: block;
+        width: 10px;
+        height: 160px;
+        background: rgba(39, 44, 49, 0.75);
+        filter: blur(25px);
+    } */ }
   body li {
     color: #42648f;
     list-style: none; }
@@ -34,20 +47,6 @@ body {
     width: 90%;
     margin: auto;
     background-color: white; }
-  body .wrapper:before, body .wrapper:after, body h3::before,
-  body .wrapper:after {
-    content: "";
-    position: absolute;
-    top: 235px;
-    z-index: -1;
-    display: block;
-    width: 10px;
-    height: 160px;
-    background: rgba(39, 44, 49, 0.75);
-    -webkit-filter: blur(25px);
-    filter: blur(25px); }
-  body .wrapper:after {
-    right: 5%; }
   body h3 {
     z-index: -3;
     background-color: white; }
@@ -78,6 +77,9 @@ body {
     color: white;
     text-align: center; }
 
+#r1, #r2, #r3, #r4, #r5 {
+  margin-left: 10px; }
+
 #chart1 .x.axis text {
   text-anchor: start !important;
   -webkit-transform: rotate(90deg);
@@ -103,3 +105,15 @@ body {
 .bg-custom {
   background-color: #42648f;
   color: #223349; }
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    width: 100%; }
+  .wrapper:after, .wrapper:before, body .wrapper:after, body h3::before {
+    display: none; }
+  .check {
+    display: block; } }
+
+@media only screen and (min-width: 601px) {
+  .check {
+    display: inline; } }

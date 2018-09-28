@@ -1,5 +1,5 @@
 // This function draw price chart
-/* eslint no-undef: 0 */
+/* eslint no-undef: 0 no-unused-vars:0 */
 
 function drawPriceChart(data, id, width, height, currency) {
   queue()
@@ -7,24 +7,18 @@ function drawPriceChart(data, id, width, height, currency) {
     .await(makeGraphs);
 
   function makeGraphs(error, transactionsData) {
-    loading++;
+    loading += 1;
     progress(loading);
     if (error) { console.log(error); }
     const a = id.substr(1);
     a.toString();
     document.getElementById(a).innerHTML = `<p>${transactionsData[0].High} ${currency} </p>`;
 
-    let max;
-    let min;
-    let firstDate;
-    let lastDate;
 
-    max = d3.max(transactionsData, d => +d.High);
-    min = d3.min(transactionsData, d => +d.High);
-    firstDate = d3.min(transactionsData, d => d.Date);
-    lastDate = d3.max(transactionsData, d => d.Date);
-
- 
+    const max = d3.max(transactionsData, d => +d.High);
+    const min = d3.min(transactionsData, d => +d.High);
+    const firstDate = d3.min(transactionsData, d => d.Date);
+    const lastDate = d3.max(transactionsData, d => d.Date);
 
     const x = d3.time.scale()
       .domain([new Date(firstDate), new Date(lastDate)])
@@ -38,12 +32,10 @@ function drawPriceChart(data, id, width, height, currency) {
       .domain([0, max - min]) // Boundaries for chart
       .range([0, height - 10 - marginBottom]); // boundaries for data
 
-
-    if (svg) {
-      const path = svg.select(id);
-      path.exit().remove();
-      console.log('there is svg');
-    }
+      if (svg) {
+        const path = svg.select(id);
+        path.exit().remove();
+      }
     const svg = d3.select(id)
       .append('svg')
       .attr('width', width)
@@ -99,7 +91,7 @@ function drawPriceChart(data, id, width, height, currency) {
 
     svg.append('g')
       .attr('class', 'x axis')
-      .attr('transform', `translate(40,${tmp })`)
+      .attr('transform', `translate(40,${tmp})`)
       .call(xAxis)
       .selectAll('text')
       .attr('y', 0)

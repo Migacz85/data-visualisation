@@ -1,4 +1,4 @@
-/* eslint no-undef: 0*/
+/* eslint no-undef: 0 no-unused-vars: 0 */
 function drawCharts(date) {
   drawPriceChart(setDate(date, 'ether'), '#ether', width, height, '€');
   drawPriceChart(setDate(date, 'bitcoin'), '#bitcoin', width, height, '$');

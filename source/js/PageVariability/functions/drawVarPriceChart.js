@@ -28,8 +28,21 @@ function drawVarPriceChart(data, id, width, height, currency) {
     lastDate = d3.max(transactionsData, d => d.Date);
 
 
-    avg = avg.toFixed(0);
-    max = max.toFixed(0);
+
+    avg = avg.toFixed(1);
+    max = max.toFixed(1);
+    //min = min.toFixed(1);
+
+    // Print stats
+    console.log(a)
+      document.getElementById(a+'-stat').innerHTML=`
+      <li class="list-group-item">Dates: ${firstDate} to ${lastDate}</li>
+      <li class="list-group-item">Max Price: ${max} ${currency}</li>
+      <li class="list-group-item">Min Price: ${min.toFixed(1)} ${currency}</li>
+      <li class="list-group-item">Average Variability in Price: ${avg} ${currency}</li>
+      `
+      
+  
     // min = min.toFixed(0);
     document.getElementById(a).innerHTML = ` <p> Max: ${max} Average: ${avg} ${currency} </p>`;
 

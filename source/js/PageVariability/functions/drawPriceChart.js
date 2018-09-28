@@ -1,5 +1,5 @@
 // This function draw price chart
-/* eslint no-undef: 0*/
+/* eslint no-undef: 0 */
 
 function drawPriceChart(data, id, width, height, currency) {
   queue()
@@ -24,6 +24,7 @@ function drawPriceChart(data, id, width, height, currency) {
     firstDate = d3.min(transactionsData, d => d.Date);
     lastDate = d3.max(transactionsData, d => d.Date);
 
+ 
 
     const x = d3.time.scale()
       .domain([new Date(firstDate), new Date(lastDate)])
@@ -98,7 +99,7 @@ function drawPriceChart(data, id, width, height, currency) {
 
     svg.append('g')
       .attr('class', 'x axis')
-      .attr('transform', `translate(40,${  tmp  })`)
+      .attr('transform', `translate(40,${tmp })`)
       .call(xAxis)
       .selectAll('text')
       .attr('y', 0)

@@ -131,10 +131,16 @@ body {
 }
 // Radio
 
-#r1, #r2, #r3, #r4, #r5 {
-    margin-left:10px;
+input {
+    margin-right:15px;
+    margin-left: 3px;
 }
-
+#progress-bar {
+   width:100%;
+   top:0;
+   z-index:2;
+    position:fixed;
+}
 // Charts
 
  #chart1 .x.axis text {

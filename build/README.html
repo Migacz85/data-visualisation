@@ -1,69 +1,128 @@
-<h1 id="your-project-s-name">Your Project&#39;s Name</h1>
-<p>One or two paragraphs providing an overview of your project.</p>
-<p>Essentially, this part is your sales pitch.</p>
+<h1 id="data-visualisation">Data Visualisation</h1>
+<p><img src="/img/crypto.png" alt="crypto.png" height="100" align="center"> <br>
+This project is attempt to visualize current price of popular crypto currencies like
+bitcoin, etherum and litecoin.</p>
 <h2 id="ux">UX</h2>
-<p>Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.</p>
-<p>In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:</p>
+<p>This website is for people interested in price of crypto-currencies. They can quickly analyze on witch days the variability of the price was the highest, and see the most recent price of currencies. </p>
+<p>I firstly created <a href="https://github.com/Migacz85/web-template">web-template</a> project to prepare my workspace and connect all modern technologies. Then I started building this project on top of it. In case you want to deeply understand how this project work <a href="https://github.com/Migacz85/web-template">read more.</a></p>
+<p>The main idea in this UX process design was:</p>
 <ul>
-<li>As a user type, I want to perform an action, so that I can achieve a goal.</li>
+<li>Keep it simple.</li>
+<li>Focus to use bootstrap when possible.</li>
+<li>Deliver clean easy to read design.</li>
 </ul>
-<p>This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.</p>
+<h2 id="user-stories">User stories</h2>
+<h3 id="as-a-visitor-i-want-to-have-">As a visitor I want to have:</h3>
+<ul>
+<li>Radio-box buttons to select interesting date scope so I can see price from that dates.</li>
+<li>Radio-box buttons that after check will refresh charts so I can see immediately effect after click.</li>
+<li>Progress bar that will inform me when data will be loaded so I will know when data is still loading.</li>
+<li>Progress bar that will disappear when the data will be loaded so I can focus on charts.</li>
+<li>Progress bar that will show % of loaded data so I will know how many data left to load.</li>
+<li>Chart that will show price from selected period so I can see how price was changing. </li>
+<li>Chart that will show variability in price from selected period so I can see where variability was the highest.</li>
+<li>Colored bars on yellow when variability in price is higher than average so I can see that better.</li>
+<li>Statistical information that will show: maximal change in price, minimal change in price, average variability in price and dates that was selected so I can quick scan data.</li>
+</ul>
 <h2 id="features">Features</h2>
-<p>In this section, you should go over the different parts of your project, and describe each in a sentence or so.</p>
+<p>The data used to power charts in this project is delivered by: <a href="https://www.quandl.com/">https://www.quandl.com/</a></p>
 <h3 id="existing-features">Existing Features</h3>
 <ul>
-<li>Feature 1 - allows users X to achieve Y, by having them fill out Z</li>
-<li>...</li>
+<li>Progress bar - Showing user how much data is left to load from external source so he knows that hee need to wait</li>
+<li>Current price chart  - Showing user a current price on a chart so he knows how price was changing.</li>
+<li>Current variability chart - Showing user a variablity in price for given days.</li>
+<li>Period range -  Allows user to select a period range so he can see on chart period he is interested in</li>
 </ul>
-<p>For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.</p>
-<p>In addition, you may also use this section to discuss plans for additional features to be implemented in the future:</p>
 <h3 id="features-left-to-implement">Features Left to Implement</h3>
 <ul>
-<li>Another feature idea</li>
+<li>on page marketcap.html there can be implemented bunch of different graphs showing 
+for example market capitalization of 10 biggest crypto-currencies. </li>
 </ul>
 <h2 id="technologies-used">Technologies Used</h2>
-<p>In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.</p>
 <ul>
-<li><a href="https://jquery.com">JQuery</a><ul>
-<li>The project uses <strong>JQuery</strong> to simplify DOM manipulation.</li>
+<li><a href="https://gulpjs.com/ "> Gulp</a></li>
 </ul>
-</li>
+<p>I decided to learn and implement gulp in this particular project, because there was tremendous increase of small task to perform when adding technologies to project like:
+refreshing the website or Jasmine spec results, compile sass code on css, minify pictures, auto-prefixing  etc. If you are interested about details how gulp is configured in this project <a href="https://github.com/Migacz85/web-template">Read more</a></p>
+<ul>
+<li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">Sass</a> </li>
 </ul>
+<p>Sass is just great, once you start using variables in css there is no way back :)</p>
+<ul>
+<li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">Babel</a> </li>
+</ul>
+<p>Babel is a compiler that will compile js code to the most supported version of javascript for other browsers. As a developer I want to develop code that will be well-supported.</p>
+<ul>
+<li><a href="https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb">Eslint<a></li>
+</ul>
+<p>Implemented with airbnb. As a developer I want to write clean and well edited code to other developers. </p>
 <h2 id="testing">Testing</h2>
-<p>In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.</p>
-<p>Whenever it is feasible, prefer to automate your tests, and if you&#39;ve done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.</p>
-<p>For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:</p>
 <ol>
-<li>Contact form:<ol>
-<li>Go to the &quot;Contact Us&quot; page</li>
-<li>Try to submit the empty form and verify that an error message about the required fields appears</li>
-<li>Try to submit the form with an invalid email address and verify that a relevant error message appears</li>
-<li>Try to submit the form with all inputs valid and verify that a success message appears.</li>
+<li>Radio buttons<ol>
+<li>Clicking multiple times on radio buttons doesn&#39;t load scripts before data is loaded times</li>
+<li>Radio buttons are showing correct scope dates on charts after click</li>
+<li>Each click is </li>
+</ol>
+</li>
+<li>Graphs are showing correctly the:<ol>
+<li>Last price</li>
+<li>Price Scale on the left (y)</li>
+<li>Dates Scale on the bottom (x)</li>
+<li>Variability bars show correct maximal variability and average data.</li>
+</ol>
+</li>
+<li>Statistics:<ol>
+<li>Show correct date range.</li>
+<li>Maximal change in price per day</li>
+<li>Minimal change in price per day:</li>
+<li>Average Variability in Price: </li>
 </ol>
 </li>
 </ol>
-<p>In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.</p>
-<p>You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven&#39;t addressed them yet.</p>
-<p>If this section grows too long, you may want to split it off into a separate file and link to it from here.</p>
+<p>Website was tested on: </p>
+<ul>
+<li>laptop</li>
+<li>galaxy s6 s8</li>
+<li>motorola style </li>
+</ul>
+<p>Presented content is displaying properly on each device.</p>
 <h2 id="deployment">Deployment</h2>
-<p>This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).</p>
-<p>In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:</p>
+<p>Project was deployed on github-pages if you want to quick check how project look like you can <a href="https://migacz85.github.io/data-visualisation/build/"> see working project.</a></p>
+<p>The deployment folder in this particular case is in /build
+All source files required to create this folder are located in /source
+To compile them in to /build look in to Installation section.</p>
+<h2 id="development-version">Development version</h2>
+<p>The development version of project is located in /source folder.
+After running commands from installation section. Running </p>
+<pre><code>gulp</code></pre><p>(when change to files will be detected) will:</p>
 <ul>
-<li>Different values for environment variables (Heroku Config Vars)?</li>
-<li>Different configuration files?</li>
-<li>Separate git branch?</li>
+<li>compile(autoprefix,sourcemapped) sass to min-css/style.css</li>
+<li>compile(minify,babel,sourcemapped) all js files to build/js/market.js and build/js/variability.js</li>
+<li>copy all .html files to /build</li>
+<li>compress photos and put them to /build/img</li>
+<li>autoreload the page each time when something was done.</li>
 </ul>
-<p>In addition, if it is not obvious, you should also describe how to run your code locally.</p>
-<h2 id="credits">Credits</h2>
-<h3 id="content">Content</h3>
-<ul>
-<li>The text for section Y was copied from the <a href="https://en.wikipedia.org/wiki/Z">Wikipedia article Z</a></li>
-</ul>
-<h3 id="media">Media</h3>
-<ul>
-<li>The photos used in this site were obtained from ...</li>
-</ul>
-<h3 id="acknowledgements">Acknowledgements</h3>
-<ul>
-<li>I received inspiration for this project from X</li>
-</ul>
+<p>All that job is done by the script I coded in file gulpfile.js I wrote about it extensively in my preparation project <a href="https://github.com/Migacz85/web-template">web-template<a></p>
+<h3 id="javascript-files">Javascript files</h3>
+<p>Few important things to notice:</p>
+<p>/source/js have to folders: 
+PageMarket and PageVariability folder. </p>
+<p>All .js files from PageVariablity are bundled in to one file in to build/js/variability.js and this file is included to build/js/variability.html </p>
+<p>Same situation is with PageMarket folder but the .js file is bundled to build/js/market.js and this one is included in marketcap.html</p>
+<p>I made it like that because I wanted to have option to create new .html including new multiple js files that are bundled to new bundle.js file. That workflow can provide some additional flexibility when coding using javascript projects. However, in moment of this writing I think that for the larger projects and much more power and flexibility technologies like webpack can be better solution. However this approach still can be beneficial in some situations.</p>
+<h4 id="what-is-the-ordering-of-js-files-in-pagevariability-folder-how-they-are-concatenated-">What is the ordering of .js files in PageVariability folder? How they are concatenated ?</h4>
+<p>first: chart-settings-and-data.js
+second: all folder functions
+last: draw-chart.js </p>
+<p>The order is specified in gulpfile.js in:</p>
+<pre><code>const JS_ORDER_VARIABILITY = [SCRIPTS_P_VARIABILITY+&#39;chart-settings-and-data.js&#39;, SCRIPTS_P_VARIABILITY+&#39;/**/*.js&#39;, SCRIPTS_P_VARIABILITY+&#39;draw-chart.js&#39;];</code></pre><p>Where </p>
+<pre><code>SCRIPT_P_VARIABILITY=&quot;source/js/PageVariability&quot;</code></pre><h4 id="why-i-decided-to-approach-this-in-that-way-">Why I decided to approach this in that way?</h4>
+<p>Because I want to have possibility to split js code in to multiple files so I can organize it better. Including them in to script tags can reduce performance of loading times. Also working with a one big .js file in long term is no good.</p>
+<h3 id="installation-">Installation:</h3>
+<pre><code>https://github.com/Migacz85/data-visualisation.git
+npm install
+sudo npm install gulp -g
+sudo npm i -g gulp-cli</code></pre><p>After that you can build and run the project with:</p>
+<pre><code>gulp</code></pre><p>Automated tests that are live-reloaded are available by running: 
+(for now there is 0 tests)</p>
+<pre><code>jasmine-live</code></pre>

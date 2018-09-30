@@ -60,7 +60,10 @@
 
     <main>
         <p></p>
-
+        <div id="progress-bar" class="progress">
+                <div id="progress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
 
         <div class="wrapper">
 
@@ -69,16 +72,13 @@
                 <div class="col-md-12">
                     <h1>Check variability in popular Cryptocurrencies </h1>
                     <p></p>
-                    <img src="/img/crypto.png" alt="crypto.png" height="100">
+                    <img src="img/crypto.png" alt="crypto.png" height="100">
                     <h2>Select range: </h2>
                     <p></p>
                 </div>
                 <div class="col-md-12">
 
-                    <div id="progress-bar" class="progress">
-                        <div id="progress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25"
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                   
                     <p></p>
 
                     <div id="date">
@@ -94,7 +94,7 @@
                                 onclick="drawChartsSelectMonths(1)"></div>
 
                     </div>
-
+<p></p>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
                     <h3 id="bit">Bitcoin Price</h3>
@@ -140,9 +140,24 @@
             </div>
             <p> </p>
             <div class="row" align="center">
+
                 <div class="col-md-12">
                     <h1>Statistics: </h1>
                     <p></p>
+                    <div id="date">
+                            <div class='check'><label for="r6">All Data </label> <input type="radio" id="r6" name="rate"
+                                    onclick="alldata()" checked> </div>
+                            <div class='check'><label for="r7">Last Year </label> <input type="radio" id="r7" name="rate"
+                                    onclick="drawChartsSelectMonths(12)"></div>
+                            <div class='check'><label for="r8">Last Half year </label><input type="radio" id="r8" name="rate"
+                                    onclick="drawChartsSelectMonths(6)"> </div>
+                            <div class='check'><label for="r9">Last 3 Months </label><input type="radio" id="r9" name="rate"
+                                    onclick="drawChartsSelectMonths(3)"></div>
+                            <div class='check'><label for="r10">Last Month </label><input type="radio" id="r10" name="rate"
+                                    onclick="drawChartsSelectMonths(1)"></div>
+    
+                        </div>
+                        <p></p>
                 </div>
                 <div class="col-lg-4 col-md-6">
 
@@ -151,9 +166,7 @@
                             Ether
                         </div>
                         <ul id='ether-var-stat' class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -163,9 +176,7 @@
                             Litecoin
                         </div>
                         <ul id='litecoin-var-stat' class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
+                          
                         </ul>
                     </div>
                 </div>
@@ -175,9 +186,7 @@
                             Bitcoin
                         </div>
                         <ul id='bitcoin-var-stat' class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
+                          
                         </ul>
                     </div>
                 </div>

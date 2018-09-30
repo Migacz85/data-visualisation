@@ -179,6 +179,8 @@ gulp.task('server', () => {
       baseDir: './build/',
     },
   });
+  
+  gulp.watch('/*.md', gulp.series('readme'));
   gulp.watch('source/js/PageVariability/**/*.js', gulp.series('script'));
   gulp.watch('source/js/PageMarket/**/*.js', gulp.series('script2'));
   gulp.watch(SCSS_PATH, gulp.series('styles'));
@@ -189,6 +191,7 @@ gulp.task('server', () => {
   gulp.watch('README.md', gulp.series('readme'));
   gulp.watch('build/*.html').on('change', browserSync.reload);
   gulp.watch('build/js/**/*').on('change', browserSync.reload);
+  
 });
 
 

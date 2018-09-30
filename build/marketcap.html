@@ -22,7 +22,6 @@
 </head>
 
 <body>
-
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
             <a href="index.html" class="navbar-brand">Data Visualization</a>
@@ -49,7 +48,7 @@
                                 </div>
                             </li> -->
                     <li class="nav-item active">
-                        <a href="marketcap.html " class="nav-link">Market Cap</a>
+                        <a href="marketcap.html " class="nav-link">Bitcoin Analyse</a>
                     </li>
 
                 </ul>
@@ -57,21 +56,58 @@
         </nav>
     </header>
 
-
     <main>
         <p></p>
-        <div class="container">
-<div class="row">
-    <div class="col">
-            <h4>Market Capitalization</h4>
-<div id="type-selector"> </div>
-<div id="chart1"> </div>
-<div id="chart2"> </div>
-    </div>
-</div>
-           
+        <div class="container" align="center">
 
-        </div> <!-- wrapper  -->
+            <h2>Bitcoin Price Analyse </h2>
+            <h3> 2015/05 - Till Now</h3>
+
+            <div class="row"  >
+
+                <!-- Column Monthly Price/Volume with time scroll -->
+                <div class="col-sm-12 col-md-6 col-lg-4 " >
+                    <h4>Monthly Price/Volume Chart</h4>
+                    <div id="monthly-move-chart" >
+                        <a href="javascript:moveChart.filterAll();volumeChart.filterAll();dc.redrawAll();"
+                            style="display: none;">reset</a>
+                    </div>
+                    <div id="monthly-volume-chart"> </div>
+                </div>
+                <!-- Column with bubble chart -->
+                <div class="col-sm-12 col-md-6 col-lg-4  ">
+                    <div>
+                        <h4>Monthly bubble chart</h4>
+                        <div id="yearly-bubble-chart"></div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div id="day-of-week-chart">
+                           <h4>Day of Week</h4>
+                            <a class="reset" href="javascript:dayOfWeekChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+       
+                        </div>
+                    </div>
+                   
+                    <div class="col-sm-12 col-md-6 col-lg-4" >
+                            <div id="fluctuation-chart">
+                                <h4>Days by Fluctuation(%)</h4>
+                                <a class="reset" href="javascript:fluctuationChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                                <div id="gain-loss-chart">
+                                    <h4>Days by Gain/Loss</h4>
+                                    <a class="reset" href="javascript:gainOrLossChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+            
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+            </div>
+
+           <p></p>
+        </div> <!--container -->
     </main>
 
     <footer>
@@ -87,11 +123,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <!-- library for graphs -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.css" />
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.7/dc.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.7/dc.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
     <!-- project bundled scripts -->
     <script src="js/market.js"></script>

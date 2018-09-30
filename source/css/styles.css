@@ -38,10 +38,10 @@ body {
   body .container h4,
   body .container h5,
   body .container p {
-    margin-top: 50px;
-    margin-bottom: 50px; }
-  body .marginTB, body h1, body h2, body h3, body h4, body p {
     margin-top: 30px;
+    margin-bottom: 30px; }
+  body .marginTB, body h1, body h2, body h3, body h4, body p {
+    margin-top: 10px;
     margin-bottom: 0px; }
   body .wrapper {
     width: 90%;
@@ -87,16 +87,23 @@ input {
   z-index: 2;
   position: fixed; }
 
-#chart1 .x.axis text {
+div.dc-chart {
+  float: none !important; }
+
+svg .x.axis text {
   text-anchor: start !important;
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg); }
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg); }
 
 .axis line,
 .axis path {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges; }
+
+svg {
+  display: table;
+  float: none !important; }
 
 .container {
   z-index: 0;

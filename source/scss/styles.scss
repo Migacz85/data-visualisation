@@ -36,12 +36,12 @@ body {
     .container h4,
     .container h5,
     .container p {
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 
     .marginTB {
-        margin-top: 30px;
+        margin-top: 10px;
         margin-bottom: 0px;
     }
 
@@ -142,11 +142,13 @@ input {
     position:fixed;
 }
 // Charts
-
- #chart1 .x.axis text {
+div.dc-chart {
+    float:none !important;
+}
+ svg .x.axis text {
     // display:none;
    text-anchor: start !important;
-   transform: rotate(90deg);
+   transform: rotate(40deg);
 } 
   .axis line,
   .axis path {
@@ -155,10 +157,17 @@ input {
     shape-rendering: crispEdges;
   }
   
+  svg {
+    display:table;
+    float:none !important;
+
+  }
 // Bootstrap
 .container {
+
     z-index: 0;
     background-color: white;
+ 
 }
 
 .card {

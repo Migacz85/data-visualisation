@@ -32,10 +32,10 @@ function drawPriceChart(data, id, width, height, currency) {
       .domain([0, max - min]) // Boundaries for chart
       .range([0, height - 10 - marginBottom]); // boundaries for data
 
-      if (svg) {
-        const path = svg.select(id);
-        path.exit().remove();
-      }
+    if (svg) {
+      const path = svg.select(id);
+      path.exit().remove();
+    }
     const svg = d3.select(id)
       .append('svg')
       .attr('width', width)

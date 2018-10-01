@@ -8,15 +8,18 @@ const monthlyBubbleChart = dc.bubbleChart('#yearly-bubble-chart');
 const width = 340;
 const height = 300;
 
+// Check if browser is offline
+if(!navigator.onLine) {
+  alert('This website need to be connected to internet in order to work properly')
+}
+
 d3.csv('https://www.quandl.com/api/v3/datasets/BCHARTS/COINBASEEUR.csv?api_key=fzanZC3297Jsid-E8vCF').then((data) => {
   
-  //if (loading === 6 || loading === 0) 
-   //{
+  // Hide loader, and show site content
     document.getElementById('loader').style.display = 'none';
-  //} else {
-  //  document.getElementById('loader').style.display = 'block';
-  //}
-
+    document.getElementById('container').style.display = 'block';
+    document.getElementById('footer').style.display = 'block';
+  
   // Format the data
   let dateFormatSpecifier = '%Y-%m-%d';
   let dateFormat = d3.timeFormat(dateFormatSpecifier);

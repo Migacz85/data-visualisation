@@ -13,9 +13,9 @@ $fonts: #626262;
 .title {
     margin-top: 300px;
 }
-
+html{ height:100%;}
 body {
-
+    
     padding: 0;
     margin: 0;
     font-family: 'Didact Gothic', sans-serif;
@@ -67,7 +67,7 @@ body {
 
     .wrapper:after {
         @extend .wrapper:before;
-    //    right: 5%;
+        //    right: 5%;
     }
 
     h3 {
@@ -118,10 +118,14 @@ body {
     }
 
     footer {
+        position: relative;
+        bottom: 0px;
+        padding:5px;
         background-color: darken($main-col, 0);
-        padding: 30px;
         position: relative;
         bottom: 0;
+        width: 100%;
+        height: 50px;
     }
 
     footer p {
@@ -129,48 +133,56 @@ body {
         text-align: center;
     }
 }
+
 // Radio
 
 input {
-    margin-right:15px;
+    margin-right: 15px;
     margin-left: 3px;
 }
+
 #progress-bar {
-background-color: transparent;
-   width:100%;
-   top:0;
-   z-index:2;
-    position:fixed;
+    background-color: transparent;
+    width: 100%;
+    bottom: 0px;
+    z-index: 2;
+    position: fixed;
 }
+
 // Charts
 div.dc-chart {
-    float:none !important;
+    float: none !important;
 }
- svg .x.axis text {
+
+svg .x.axis text {
     // display:none;
-   text-anchor: start !important;
-   transform: rotate(40deg);
-} 
-  .axis line,
-  .axis path {
+    text-anchor: start !important;
+    transform: rotate(40deg);
+}
+
+.axis line,
+.axis path {
     fill: none;
     stroke: #000;
     shape-rendering: crispEdges;
-  }
-  
-  svg {
-    display:table;
-    float:none !important;
+}
 
-  }
+svg {
+    display: table;
+    float: none !important;
+
+}
+
 // Bootstrap
 .container {
 
     z-index: 0;
     background-color: white;
- 
+    min-height:100vh;
 }
-
+.wrapper {
+     min-height:100vh;
+}
 .card {
     margin-top: 10px;
     border-color: lighten($main-col, 0);
@@ -187,23 +199,45 @@ div.dc-chart {
 
 // Loader on bitcoin site
 
-#loader {width:50%; height:50%; margin-top:10%; }
+#loader {
+    position: relative;
+    top:30%;
+    left:25%;
+    width: 50%;
+    height: 50%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    
+}
 
-@media only screen and (max-width: 600px)   {
-   
-    #loader {width:100%; height:100%; margin-top:40%; margin-bottom:20%;}
-    .wrapper {
-        width: 100%;  
+@media only screen and (max-width: 600px) {
+
+    #loader {
+        position: relative;
+        display: table-cell;
+        bottom:10%;
+        left:15%;
+        width: 70%;
+        height: 70%;
+        margin-top:40%;
+        
+        
     }
-    .wrapper:after, .wrapper:before {
-        display:none;
+
+    
+
+    .wrapper:after,
+    .wrapper:before {
+        display: none;
     }
+
     .check {
-        display:block;
+        display: block;
     }
 }
-@media only screen and (min-width: 601px)   { 
+
+@media only screen and (min-width: 601px) {
     .check {
-        display:inline;
+        display: inline;
     }
 }

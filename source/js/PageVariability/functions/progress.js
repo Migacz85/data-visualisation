@@ -4,7 +4,13 @@ function progress(loading) {
   document.getElementById('progress').style.width = `${(loading / 6) * 100}%`;
   if (loading === 6 || loading === 0) {
     document.getElementById('progress-bar').style.display = 'none';
+    document.getElementById('wrapper').style.display = 'block';
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('footer').style.display = 'block';
   } else {
     document.getElementById('progress-bar').style.display = 'block';
+    document.getElementById('wrapper').style.display = 'none';
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('footer').style.display = 'none';
   }
 }

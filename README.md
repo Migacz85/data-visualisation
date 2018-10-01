@@ -19,33 +19,81 @@ The main idea in this UX process design was:
 
 ### As a visitor I want to have: 
 
-- Radio-box buttons to select interesting date scope so I can see price from that dates.
-- Radio-box buttons that after check will refresh charts so I can see immediately effect after click.
-- Progress bar that will inform me when data will be loaded so I will know when data is still loading.
-- Progress bar that will disappear when the data will be loaded so I can focus on charts.
-- Progress bar that will show % of loaded data so I will know how many data left to load.
-- Chart that will show price from selected period so I can see how price was changing. 
-- Chart that will show variability in price from selected period so I can see where variability was the highest.
-- Colored bars on yellow when variability in price is higher than average so I can see that better.
-- Statistical information that will show: maximal change in price, minimal change in price, average variability in price and dates that was selected so I can quick scan data.
+- On Variability page
+    - Radio-box buttons to select interesting date scope so I can see price from that dates.
+    - Radio-box buttons that after check will refresh charts so I can see immediately effect after click.
+    - Progress bar that will inform me when data will be loaded so I will know when data is still loading.
+    - Progress bar that will disappear when the data will be loaded so I can focus on charts.
+    - Progress bar that will show % of loaded data so I will know how many data left to load.
+    - Chart that will show price from selected period so I can see how price was changing. 
+    - Chart that will show variability in price from selected period so I can see where variability was the highest.
+    - Colored bars on yellow when variability in price is higher than average so I can see that better.
+    - Statistical information that will show: maximal change in price, minimal change in price, average variability in price and dates that was selected so I can quick scan data.
 
+- On Bitcoin analyse page
+    - Monthly price chart to see the price for selected dates so I know how price was changing
+    - Volume price chart to see volume range so I can see how volume was changing. 
+    - Volume price chart to to have handlebars so I can select interesting dates.
+    - Monthly bubble chart to see witch months was performing the best so I can expect that this months are the best to invest.
+    - Monthly bubble chart to have option to select given months so I can analyse only this month.
+    - Days of week chart to see and select days so I can see how this days was performing 
+    - Days by fluctuation so I can see daily histogram price change and filter by selecting most interesting range. 
+    - Days by Loose/Gain so I can see how many days was gaining and losing in selected period so I can filter by gain and lose days.
+    - Loading Gif to inform me that data is loading on the page so I dont see not rendered site.
+    - Loading Gif to inform me that data is loading on the page so I have more professional feel.
+
+### As a developer I want to have: 
+
+- When working with project. As a developer I want to have:
+    - auto refreshing the website, when I'm making changes so I save time and see results immediately.
+    - auto refreshing the jasmine testing result page, when I'm making changes to spec files so I save time and see results immediately.
+    - preview of the website I build in the same time on the phone, when I am making changes on UX development so I have real UX testing on the mobile.
+    - auto compiling sass to build folder, when I'm making changes to sass files so I can see immediately changes in to project and save time.
+    - auto compressing photos and moving them to build/img folder, when I am putting an image to folder /source/img so I can save time and keep site small in size.
+    - auto generating html version of README.md so I while I'm writing documentation I can see that all tags are rendering how they should without sending it on github.
+
+- When working with javascript. As a developer I want to:
+    - concatenate all .js files from PageVariability to build/js/variability.js while I'm writing javascript code in source/js/PageVariability so I have ability to split js code in to multiple files and organize my code better. 
+    - concatenate all .js files from PageMarket to build/js/market.js while I'm writing javascript code in source/js/PageMarket so I have ability to split js code in to multiple files and organize my code better. 
+    - compile with babel on js files that are moved to /build/js when I'm making changes to javascript files so browsers have better support for code I develop.
+    - minify js files, while I'm making changes to js files so files are loading faster in browser.
+    - add sourcemaps, while I'm making changes to javascript code so I can see how on minified javascript files website is rendering in browser and if errors occur browser will link to source files. (So I can work on source files and see build result in the browser)
+    - use eslint, while I'm writing javascript code so I can develop clean code other coders understand
+    
 ## Features
 
 The data used to power charts in this project is delivered by: https://www.quandl.com/
 
 ### Existing Features
 
+On variability page (d3 library)
 - Progress bar - Showing user how much data is left to load from external source so he knows that hee need to wait
 - Current price chart  - Showing user a current price on a chart so he knows how price was changing.
 - Current variability chart - Showing user a variablity in price for given days.
 - Period range -  Allows user to select a period range so he can see on chart period he is interested in
 
+On Bitcoin page Analyse: (d3, crossfilter, dc)
+- Days by Fluctuation(%)
+- Days by Gain/Loss
+- Monthly Price/Volume Chart
+- Monthly Index Average
+- Monthly Index Move
+- Monthly bubble chart
+- Day of Week
+
+
 ### Features Left to Implement
 
-- on page marketcap.html there can be implemented bunch of different graphs showing 
-for example market capitalization of 10 biggest crypto-currencies. 
+- Because site relies heaviely on data from quandl.com. It cannot work without the connection to the internet. Page should inform the user:
+
+    - When data is not loaded.
+    - When there is lost in internet connectivity. 
 
 ## Technologies Used
+
+- <a href="https://nodejs.org/ "> Npm</a>
+
+In order to use this project as a developer you need to have npm install. 
 
 - <a href="https://gulpjs.com/ "> Gulp</a>
 
@@ -67,6 +115,8 @@ Implemented with airbnb. As a developer I want to write clean and well edited co
 
 ## Testing
 
+Variability page:
+
 1. Radio buttons
     1. Clicking multiple times on radio buttons doesn't load scripts before data is loaded times
     2. Radio buttons are showing correct scope dates on charts after click
@@ -81,6 +131,16 @@ Implemented with airbnb. As a developer I want to write clean and well edited co
     2. Maximal change in price per day
     3. Minimal change in price per day:
     4. Average Variability in Price: 
+
+Bitcoin analyse page:
+
+1. Charts:
+    1. Are displaying data correctly
+    2. Correctly link between all charts.
+    3. Bubble charts are selecting months correctly
+    4. Volume charts are selecting range of data correctly.
+    5. Days of week are selecting weeks correctly.
+    5. Days by fluctuation are selecting them correctly.
 
 Website was tested on: 
 
@@ -122,7 +182,7 @@ PageMarket and PageVariability folder.
 
 All .js files from PageVariablity are bundled in to one file in to build/js/variability.js and this file is included to build/js/variability.html 
 
-Same situation is with PageMarket folder but the .js file is bundled to build/js/market.js and this one is included in marketcap.html
+Same situation is with PageMarket folder but the .js file is bundled to build/js/market.js and this one is included in bitcoin.html
 
 I made it like that because I wanted to have option to create new .html including new multiple js files that are bundled to new bundle.js file. That workflow can provide some additional flexibility when coding using javascript projects. However, in moment of this writing I think that for the larger projects and much more power and flexibility technologies like webpack can be better solution. However this approach still can be beneficial in some situations.
 
@@ -142,10 +202,6 @@ Where
 ```
 SCRIPT_P_VARIABILITY="source/js/PageVariability"
 ```
-
-#### Why I decided to approach this in that way?
-
-Because I want to have possibility to split js code in to multiple files so I can organize it better. Including them in to script tags can reduce performance of loading times. Also working with a one big .js file in long term is no good.
 
 ### Installation:
 ```

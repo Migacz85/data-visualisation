@@ -14,6 +14,8 @@ bitcoin, etherum and litecoin. And also provide deep analyse of bitcoin.</p>
 <h2 id="user-stories">User stories</h2>
 <h3 id="as-a-visitor-i-want-to-have-">As a visitor I want to have:</h3>
 <ul>
+<li><p>On Variability page</p>
+<ul>
 <li>Radio-box buttons to select interesting date scope so I can see price from that dates.</li>
 <li>Radio-box buttons that after check will refresh charts so I can see immediately effect after click.</li>
 <li>Progress bar that will inform me when data will be loaded so I will know when data is still loading.</li>
@@ -24,21 +26,79 @@ bitcoin, etherum and litecoin. And also provide deep analyse of bitcoin.</p>
 <li>Colored bars on yellow when variability in price is higher than average so I can see that better.</li>
 <li>Statistical information that will show: maximal change in price, minimal change in price, average variability in price and dates that was selected so I can quick scan data.</li>
 </ul>
+</li>
+<li><p>On Bitcoin analyse page</p>
+<ul>
+<li>Monthly price chart to see the price for selected dates so I know how price was changing</li>
+<li>Volume price chart to see volume range so I can see how volume was changing. </li>
+<li>Volume price chart to to have handlebars so I can select interesting dates.</li>
+<li>Monthly bubble chart to see witch months was performing the best so I can expect that this months are the best to invest.</li>
+<li>Monthly bubble chart to have option to select given months so I can analyse only this month.</li>
+<li>Days of week chart to see and select days so I can see how this days was performing </li>
+<li>Days by fluctuation so I can see daily histogram price change and filter by selecting most interesting range. </li>
+<li>Days by Loose/Gain so I can see how many days was gaining and losing in selected period so I can filter by gain and lose days.</li>
+<li>Loading Gif to inform me that data is loading on the page so I dont see not rendered site.</li>
+<li>Loading Gif to inform me that data is loading on the page so I have more professional feel.</li>
+</ul>
+</li>
+</ul>
+<h3 id="as-a-developer-i-want-to-have-">As a developer I want to have:</h3>
+<ul>
+<li><p>When working with project. As a developer I want to have:</p>
+<ul>
+<li>auto refreshing the website, when I&#39;m making changes so I save time and see results immediately.</li>
+<li>auto refreshing the jasmine testing result page, when I&#39;m making changes to spec files so I save time and see results immediately.</li>
+<li>preview of the website I build in the same time on the phone, when I am making changes on UX development so I have real UX testing on the mobile.</li>
+<li>auto compiling sass to build folder, when I&#39;m making changes to sass files so I can see immediately changes in to project and save time.</li>
+<li>auto compressing photos and moving them to build/img folder, when I am putting an image to folder /source/img so I can save time and keep site small in size.</li>
+<li>auto generating html version of README.md so I while I&#39;m writing documentation I can see that all tags are rendering how they should without sending it on github.</li>
+</ul>
+</li>
+<li><p>When working with javascript. As a developer I want to:</p>
+<ul>
+<li>concatenate all .js files from PageVariability to build/js/variability.js while I&#39;m writing javascript code in source/js/PageVariability so I have ability to split js code in to multiple files and organize my code better. </li>
+<li>concatenate all .js files from PageMarket to build/js/market.js while I&#39;m writing javascript code in source/js/PageMarket so I have ability to split js code in to multiple files and organize my code better. </li>
+<li>compile with babel on js files that are moved to /build/js when I&#39;m making changes to javascript files so browsers have better support for code I develop.</li>
+<li>minify js files, while I&#39;m making changes to js files so files are loading faster in browser.</li>
+<li>add sourcemaps, while I&#39;m making changes to javascript code so I can see how on minified javascript files website is rendering in browser and if errors occur browser will link to source files. (So I can work on source files and see build result in the browser)</li>
+<li>use eslint, while I&#39;m writing javascript code so I can develop clean code other coders understand</li>
+</ul>
+</li>
+</ul>
 <h2 id="features">Features</h2>
 <p>The data used to power charts in this project is delivered by: <a href="https://www.quandl.com/">https://www.quandl.com/</a></p>
 <h3 id="existing-features">Existing Features</h3>
+<p>On variability page (d3 library)</p>
 <ul>
 <li>Progress bar - Showing user how much data is left to load from external source so he knows that hee need to wait</li>
 <li>Current price chart  - Showing user a current price on a chart so he knows how price was changing.</li>
 <li>Current variability chart - Showing user a variablity in price for given days.</li>
 <li>Period range -  Allows user to select a period range so he can see on chart period he is interested in</li>
 </ul>
+<p>On Bitcoin page Analyse: (d3, crossfilter, dc)</p>
+<ul>
+<li>Days by Fluctuation(%)</li>
+<li>Days by Gain/Loss</li>
+<li>Monthly Price/Volume Chart</li>
+<li>Monthly Index Average</li>
+<li>Monthly Index Move</li>
+<li>Monthly bubble chart</li>
+<li>Day of Week</li>
+</ul>
 <h3 id="features-left-to-implement">Features Left to Implement</h3>
 <ul>
-<li>on page marketcap.html there can be implemented bunch of different graphs showing 
-for example market capitalization of 10 biggest crypto-currencies. </li>
+<li><p>Because site relies heaviely on data from quandl.com. It cannot work without the connection to the internet. Page should inform the user:</p>
+<ul>
+<li>When data is not loaded.</li>
+<li>When there is lost in internet connectivity. </li>
+</ul>
+</li>
 </ul>
 <h2 id="technologies-used">Technologies Used</h2>
+<ul>
+<li><a href="https://nodejs.org/ "> Npm</a></li>
+</ul>
+<p>In order to use this project as a developer you need to have npm install. </p>
 <ul>
 <li><a href="https://gulpjs.com/ "> Gulp</a></li>
 </ul>
@@ -57,6 +117,7 @@ refreshing the website or Jasmine spec results, compile sass code on css, minify
 </ul>
 <p>Implemented with airbnb. As a developer I want to write clean and well edited code to other developers. </p>
 <h2 id="testing">Testing</h2>
+<p>Variability page:</p>
 <ol>
 <li>Radio buttons<ol>
 <li>Clicking multiple times on radio buttons doesn&#39;t load scripts before data is loaded times</li>
@@ -76,6 +137,18 @@ refreshing the website or Jasmine spec results, compile sass code on css, minify
 <li>Maximal change in price per day</li>
 <li>Minimal change in price per day:</li>
 <li>Average Variability in Price: </li>
+</ol>
+</li>
+</ol>
+<p>Bitcoin analyse page:</p>
+<ol>
+<li>Charts:<ol>
+<li>Are displaying data correctly</li>
+<li>Correctly link between all charts.</li>
+<li>Bubble charts are selecting months correctly</li>
+<li>Volume charts are selecting range of data correctly.</li>
+<li>Days of week are selecting weeks correctly.</li>
+<li>Days by fluctuation are selecting them correctly.</li>
 </ol>
 </li>
 </ol>
@@ -108,7 +181,7 @@ After running commands from installation section. Running </p>
 <p>/source/js have to folders: 
 PageMarket and PageVariability folder. </p>
 <p>All .js files from PageVariablity are bundled in to one file in to build/js/variability.js and this file is included to build/js/variability.html </p>
-<p>Same situation is with PageMarket folder but the .js file is bundled to build/js/market.js and this one is included in marketcap.html</p>
+<p>Same situation is with PageMarket folder but the .js file is bundled to build/js/market.js and this one is included in bitcoin.html</p>
 <p>I made it like that because I wanted to have option to create new .html including new multiple js files that are bundled to new bundle.js file. That workflow can provide some additional flexibility when coding using javascript projects. However, in moment of this writing I think that for the larger projects and much more power and flexibility technologies like webpack can be better solution. However this approach still can be beneficial in some situations.</p>
 <h4 id="what-is-the-ordering-of-js-files-in-pagevariability-folder-how-they-are-concatenated-">What is the ordering of .js files in PageVariability folder? How they are concatenated ?</h4>
 <p>first: chart-settings-and-data.js
@@ -116,9 +189,7 @@ second: all folder functions
 last: draw-chart.js </p>
 <p>The order is specified in gulpfile.js in:</p>
 <pre><code>const JS_ORDER_VARIABILITY = [SCRIPTS_P_VARIABILITY+&#39;chart-settings-and-data.js&#39;, SCRIPTS_P_VARIABILITY+&#39;/**/*.js&#39;, SCRIPTS_P_VARIABILITY+&#39;draw-chart.js&#39;];</code></pre><p>Where </p>
-<pre><code>SCRIPT_P_VARIABILITY=&quot;source/js/PageVariability&quot;</code></pre><h4 id="why-i-decided-to-approach-this-in-that-way-">Why I decided to approach this in that way?</h4>
-<p>Because I want to have possibility to split js code in to multiple files so I can organize it better. Including them in to script tags can reduce performance of loading times. Also working with a one big .js file in long term is no good.</p>
-<h3 id="installation-">Installation:</h3>
+<pre><code>SCRIPT_P_VARIABILITY=&quot;source/js/PageVariability&quot;</code></pre><h3 id="installation-">Installation:</h3>
 <pre><code>https://github.com/Migacz85/data-visualisation.git
 npm install
 sudo npm install gulp -g

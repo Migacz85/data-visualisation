@@ -184,8 +184,14 @@ div.dc-chart {
     color: darken($main-col, 20);
 }
 
+// Loader on bitcoin site
+
+#loader {width:50%; height:50%; margin-top:10%; }
+
 @media only screen and (max-width: 600px)   {
-   .wrapper {
+   
+    #loader {width:100%; height:100%; margin-top:40%; margin-bottom:20%;}
+    .wrapper {
         width: 100%;
         
         

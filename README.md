@@ -1,9 +1,8 @@
  
 # Data Visualisation
-<img src="/img/crypto.png" alt="crypto.png" height="100" align="center"> <br>
+<img src="build/img/crypto.png" alt="crypto.png" height="100" align="center"> <br>
 This project is attempt to visualize current price of popular crypto currencies like
-bitcoin, etherum and litecoin.
- 
+bitcoin, etherum and litecoin. And also provide deep analyse of bitcoin.
 ## UX
  
 This website is for people interested in price of crypto-currencies. They can quickly analyze on witch days the variability of the price was the highest, and see the most recent price of currencies. 
@@ -166,3 +165,21 @@ Automated tests that are live-reloaded are available by running:
 ```
 jasmine-live
 ```
+
+Because of specificity of the charts - I choose to manually test this project.
+
+## Credits
+
+## Media
+
+Gif animation used to load the page use in this project:
+https://cdn.dribbble.com/users/267/screenshots/1927432/loading.gif
+
+
+### Acknowledgements
+
+- This project heavily depends on d3, dc, crossfilter .js librarys
+- When creating this project I used this examples - without them I could not complete this project:  
+    - https://dc-js.github.io/dc.js/examples/
+    - https://dc-js.github.io/dc.js/
+- In this place I want to say thank You for the great work and fantastic open source library's that are free to use. I also want to thank you to codeinstitute.net for showing me this.

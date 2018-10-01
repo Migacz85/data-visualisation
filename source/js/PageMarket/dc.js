@@ -9,6 +9,14 @@ const width = 340;
 const height = 300;
 
 d3.csv('https://www.quandl.com/api/v3/datasets/BCHARTS/COINBASEEUR.csv?api_key=fzanZC3297Jsid-E8vCF').then((data) => {
+  
+  //if (loading === 6 || loading === 0) 
+   //{
+    document.getElementById('loader').style.display = 'none';
+  //} else {
+  //  document.getElementById('loader').style.display = 'block';
+  //}
+
   // Format the data
   let dateFormatSpecifier = '%Y-%m-%d';
   let dateFormat = d3.timeFormat(dateFormatSpecifier);

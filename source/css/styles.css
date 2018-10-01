@@ -82,6 +82,7 @@ input {
   margin-left: 3px; }
 
 #progress-bar {
+  background-color: transparent;
   width: 100%;
   top: 0;
   z-index: 2;

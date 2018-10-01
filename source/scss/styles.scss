@@ -136,6 +136,7 @@ input {
     margin-left: 3px;
 }
 #progress-bar {
+background-color: transparent;
    width:100%;
    top:0;
    z-index:2;
@@ -192,9 +193,7 @@ div.dc-chart {
    
     #loader {width:100%; height:100%; margin-top:40%; margin-bottom:20%;}
     .wrapper {
-        width: 100%;
-        
-        
+        width: 100%;  
     }
     .wrapper:after, .wrapper:before {
         display:none;

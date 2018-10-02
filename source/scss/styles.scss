@@ -168,23 +168,32 @@ svg .x.axis text {
 }
 
 svg {
+    margin-right: auto;
+    margin-left: auto;
+
+    //transform: translate(-50%, -50%);
     display: table;
     float: none !important;
-
+    left: 50%;
+    
 }
 
 // Bootstrap
 .container {
-
+    
     z-index: 0;
     background-color: white;
     min-height:100vh;
 }
 .wrapper {
      min-height:100vh;
+     
 }
 .card {
-    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     border-color: lighten($main-col, 0);
 }
 
@@ -200,6 +209,7 @@ svg {
 // Loader on bitcoin site
 
 #loader {
+    
     margin-top: 100px;
     background: yellow;
     position: absolute;

@@ -62,16 +62,16 @@
         <p></p>
         <img id="loader" src="https://cdn.dribbble.com/users/267/screenshots/1927432/loading.gif" alt="loader"  >
         
-        <div id="container" class="container" align="center" style="display:none">
+        <div id="container" class="container"  style="display:none">
                 
             
-            <h2><i class="fab fa-bitcoin"> &nbsp</i>Bitcoin Price Analyse </h2>
-            <h3> 2015/05 - Till Now</h3>
+            <h2 class="text-center"><i class="fab fa-bitcoin"> </i>Bitcoin Price Analyse </h2>
+            <h3 class="text-center"> 2015/05 - Till Now</h3>
 
             <div class="row"  >
 
                 <!-- Column Monthly Price/Volume with time scroll -->
-                <div class="col-sm-12 col-md-6 col-lg-4 " >
+                <div class="col-sm-12 col-md-6 col-lg-4 text-center" >
                     <h4>Monthly Price/Volume Chart</h4>
                     <div id="monthly-move-chart" >
                         <a href="javascript:moveChart.filterAll();volumeChart.filterAll();dc.redrawAll();"
@@ -80,14 +80,14 @@
                     <div id="monthly-volume-chart"> </div>
                 </div>
                 <!-- Column with bubble chart -->
-                <div class="col-sm-12 col-md-6 col-lg-4  ">
+                <div class="col-sm-12 col-md-6 col-lg-4  text-center">
                     <div>
                         <h4>Monthly bubble chart</h4>
                         <div id="yearly-bubble-chart"></div>
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="col-sm-12 col-md-6 col-lg-4 text-center">
                         <div id="day-of-week-chart">
                            <h4>Day of Week</h4>
                             <a class="reset" href="javascript:dayOfWeekChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
@@ -95,13 +95,13 @@
                         </div>
                     </div>
                    
-                    <div class="col-sm-12 col-md-6 col-lg-4" >
+                    <div class="col-sm-12 col-md-6 col-lg-4 text-center" >
                             <div id="fluctuation-chart">
                                 <h4>Days by Fluctuation(%)</h4>
                                 <a class="reset" href="javascript:fluctuationChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="col-sm-12 col-md-6 col-lg-4 text-center">
                                 <div id="gain-loss-chart">
                                     <h4>Days by Gain/Loss</h4>
                                     <a class="reset" href="javascript:gainOrLossChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>

@@ -115,6 +115,12 @@ Implemented with airbnb. As a developer I want to write clean and well edited co
 
 ## Testing
 
+You can see automated jasmine test results here:
+
+https://migacz85.github.io/data-visualisation/build/js/variability-test.html
+
+However site was manual tested also:
+
 Variability page:
 
 1. Radio buttons
@@ -215,14 +221,11 @@ After that you can build and run the project with:
 gulp
 ```
 
-Automated tests that are live-reloaded are available by running: 
-(for now there is 0 tests)
+Automated Jasmine test are available by adding in url of working project:
 
 ```
-jasmine-live
+build/js/variability-test.html
 ```
-
-Because of specificity of the charts - I choose to manually test this project.
 
 ## Credits
 

@@ -33,13 +33,13 @@ The main idea in this UX process design was:
 - On Bitcoin analyse page
     - Monthly price chart to see the price for selected dates so I know how price was changing
     - Volume price chart to see volume range so I can see how volume was changing. 
-    - Volume price chart to to have handlebars so I can select interesting dates.
-    - Monthly bubble chart to see witch months was performing the best so I can expect that this months are the best to invest.
+    - Volume price chart to have handlebars so I can select interesting dates.
+    - Monthly bubble chart to see witch months was performing the best so I can expect that these months are the best to invest.
     - Monthly bubble chart to have option to select given months so I can analyse only this month.
-    - Days of week chart to see and select days so I can see how this days was performing 
+    - Days of week chart to see and select days so I can see how these days was performing 
     - Days by fluctuation so I can see daily histogram price change and filter by selecting most interesting range. 
     - Days by Loose/Gain so I can see how many days was gaining and losing in selected period so I can filter by gain and lose days.
-    - Loading Gif to inform me that data is loading on the page so I dont see not rendered site.
+    - Loading Gif to inform me that data is loading on the page so I do not see rendered site.
     - Loading Gif to inform me that data is loading on the page so I have more professional feel.
 
 ### As a developer I want to have: 
@@ -67,10 +67,10 @@ The data used to power charts in this project is delivered by: https://www.quand
 ### Existing Features
 
 On variability page (d3 library)
-- Progress bar - Showing user how much data is left to load from external source so he knows that hee need to wait
-- Current price chart  - Showing user a current price on a chart so he knows how price was changing.
+- Progress bar - Showing user how many data is left to load from external source so he knows that hee need to wait
+- Current price chart - Showing user a current price on a chart so he knows how price was changing.
 - Current variability chart - Showing user a variablity in price for given days.
-- Period range -  Allows user to select a period range so he can see on chart period he is interested in
+- Period range - Allows user to select a period range so he can see on chart period he is interested in
 
 On Bitcoin page Analyse: (d3, crossfilter, dc)
 - Days by Fluctuation(%)
@@ -84,10 +84,10 @@ On Bitcoin page Analyse: (d3, crossfilter, dc)
 
 ### Features Left to Implement
 
-- Because site relies heaviely on data from quandl.com. It cannot work without the connection to the internet. Page should inform the user:
+- Because site relies heavily on data from quandl.com. It cannot work without the connection to the internet. Page should inform the user when:
 
-    - When data is not loaded.
-    - When there is lost in internet connectivity. 
+    - Data is not loaded.
+    - There is lost in internet connectivity. 
 
 ## Technologies Used
 

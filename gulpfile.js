@@ -11,9 +11,6 @@ const imagemin = require('gulp-imagemin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const clean = require('gulp-clean');
 const sourcemaps = require('gulp-sourcemaps');
-const jasmineBrowser = require('gulp-jasmine-browser');
-const watch = require('gulp-watch');
-const jasmine = require('gulp-jasmine-livereload-task');
 const minifyCss = require('gulp-minify-css');
 const browserSync = require('browser-sync').create();
 const markdown = require('gulp-markdown');
@@ -39,12 +36,6 @@ const SCSS_PATH = 'source/scss/**/*.scss';
 const IMG_PATH = 'source/img/**/*';
 
 
-// For testing in jasmine
-const SCRIPTS_TEST_PATH = 'build/js/*.js';
-const PORT = 9980;
-const SPEC_PATH = 'source/spec/_spec.js';
-const JASMINE_PATH = [SCRIPTS_TEST_PATH, SPEC_PATH, CSS_PATH];
-
 // Order how js will be concatenated
 const JS_ORDER_VARIABILITY = [SCRIPTS_P_VARIABILITY+'chart-settings-and-data.js', SCRIPTS_P_VARIABILITY+'/**/*.js', SCRIPTS_P_VARIABILITY+'draw-chart.js'];
 const JS_ORDER_MARKET=[SCRIPTS_P_MARKET+'**/*.js']
@@ -52,20 +43,8 @@ const JS_ORDER_MARKET=[SCRIPTS_P_MARKET+'**/*.js']
 // Picture quality 0 (worst) to 100 (perfect).
 const QUALITY = 40;
 
-// Testing with jasmine
-gulp.task('jasmine-live', jasmine({
-  files: JASMINE_PATH,
-  specRunner: ['./source/spec'],
-  staticAssetsPath: ['./source/spec'],
-  livereload: PORT,
-}));
-
 // For changing readme.md in to html format
 gulp.task('readme', () => gulp.src('README.md').pipe(markdown()).pipe(gulp.dest('build/')));
-
-// Works without auto-reloading the page
-// Official tip from jasmine:
-// https://github.com/jasmine/gulp-jasmine-browser
 
 gulp.task('eslint', () => {
   gulp.src(['source/js/PageVariability/**/*.js']) 
@@ -78,16 +57,6 @@ gulp.task('eslint', () => {
       // To have the process exit with an error code (1) on
       // lint error, return the stream and pipe to failAfterError last.
       .pipe(eslint.failAfterError());
-});
-
-gulp.task('jasmine', () => {
-  const filesForTest = JASMINE_PATH;
-  return gulp.src(filesForTest)
-    .pipe(watch(filesForTest))
-    .pipe(jasmineBrowser.specRunner())
-    .pipe(jasmineBrowser.server({
-      port: PORT,
-    }));
 });
 
 // Photos

@@ -133,23 +133,18 @@ svg {
   color: #223349; }
 
 #loader {
-  position: relative;
-  top: 30%;
-  left: 25%;
-  width: 50%;
-  height: 50%;
-  margin-top: 2%;
-  margin-bottom: 5%; }
+  margin-top: 100px;
+  background: yellow;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
 
 @media only screen and (max-width: 600px) {
-  #loader {
-    position: relative;
-    display: table-cell;
-    bottom: 10%;
-    left: 15%;
-    width: 70%;
-    height: 70%;
-    margin-top: 40%; }
   .wrapper:after,
   .wrapper:before,
   body .wrapper:after,

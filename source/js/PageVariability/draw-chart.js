@@ -3,7 +3,7 @@
 
 // When page is loading first time load preset with all data for charts.
 /* eslint no-undef: 0 */
-drawCharts('2017-07-01');
+// drawCharts('2017-07-01'); <- move this to load from html
 
 // Check if the browser is offline
 if(!navigator.onLine) {

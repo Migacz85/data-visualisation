@@ -21,7 +21,7 @@ function drawVarPriceChart(data, id, width, height, currency) {
     const lastDate = d3.max(transactionsData, d => d.Date);
 
     // Print stats
-    
+
     document.getElementById(`${a}-stat`).innerHTML = `
       <li class="list-group-item">Dates:</li>
       <li class="list-group-item">${firstDate} to ${lastDate}</li>

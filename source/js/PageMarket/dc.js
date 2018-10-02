@@ -1,3 +1,4 @@
+
 const gainOrLossChart = dc.pieChart('#gain-loss-chart');
 const fluctuationChart = dc.barChart('#fluctuation-chart');
 const dayOfWeekChart = dc.rowChart('#day-of-week-chart');
@@ -8,11 +9,17 @@ const monthlyBubbleChart = dc.bubbleChart('#yearly-bubble-chart');
 const width = 340;
 const height = 300;
 
+let Calculator = {
+  current: 0,
+  operator: "",
+  button_value: 0,
+  equation: "" }
+
 // Check if browser is offline
 if(!navigator.onLine) {
   alert('This website need to be connected to internet in order to work properly')
 }
-
+ 
 d3.csv('https://www.quandl.com/api/v3/datasets/BCHARTS/COINBASEEUR.csv?api_key=fzanZC3297Jsid-E8vCF').then((data) => {
   
   // Hide loader, and show site content

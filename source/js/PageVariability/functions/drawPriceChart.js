@@ -100,32 +100,8 @@ function drawPriceChart(data, id, width, height, currency) {
       .attr('transform', 'rotate(90)')
       .attr('font-size', fontSize)
       .style('text-anchor', 'start');
-
-
-    // // 1. Create the button
-    // let button = document.createElement("button");
-    // button.innerHTML = "+";
-    // let button2 = document.createElement("button");
-    // button2.innerHTML = "-";
-
-    // // 2. Append somewhere
-    // let body = document.getElementById(a)
-    // body.appendChild(button);
-
-    // body.appendChild(button2);
-
-    // // 3. Add event handler
-    // button.addEventListener ("click", function() {
-
-    // });
-    // button2.addEventListener ("click", function() {
-    //   startDate='&start_date=2018-01-01'
-
-    //   svg.exit().remove()
-
-    // drawVarPriceChart(etherPriceData,'#ether-var',width,height);
-    // drawVarPriceChart(bitcoinPriceData,'#bitcoin-var',width,height);
-
-    // });
+      return "loaded"
   }
+
+ 
 }

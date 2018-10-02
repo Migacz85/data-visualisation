@@ -30,19 +30,20 @@ const BUILD_IMG_PATH = 'build/img/'; // Automated task: Compress new photos from
 const BUILD_JS_PATH = 'build/js/'; // Automated task: Join all js files
 
 // Source paths
-const COPY_PATH = ['source/*html','source/data/*'];
+const COPY_PATH = ['source/*.html','source/data/*'];
 const CSS_PATH = 'source/css'; // Automated task: put here a copy of css files. For reading only purpose.
-const SCRIPTS_PATH = 'source/js/**/*.js';
 const SCRIPTS_FOLDER = 'source/js/'
 const SCRIPTS_P_MARKET = SCRIPTS_FOLDER+'PageMarket/'
 const SCRIPTS_P_VARIABILITY = SCRIPTS_FOLDER+'PageVariability/'
 const SCSS_PATH = 'source/scss/**/*.scss';
 const IMG_PATH = 'source/img/**/*';
 
+
 // For testing in jasmine
-const PORT = 9997;
+const SCRIPTS_TEST_PATH = 'build/js/*.js';
+const PORT = 9980;
 const SPEC_PATH = 'source/spec/_spec.js';
-const JASMINE_PATH = [SCRIPTS_PATH, SPEC_PATH, CSS_PATH];
+const JASMINE_PATH = [SCRIPTS_TEST_PATH, SPEC_PATH, CSS_PATH];
 
 // Order how js will be concatenated
 const JS_ORDER_VARIABILITY = [SCRIPTS_P_VARIABILITY+'chart-settings-and-data.js', SCRIPTS_P_VARIABILITY+'/**/*.js', SCRIPTS_P_VARIABILITY+'draw-chart.js'];
@@ -115,6 +116,15 @@ gulp.task('copy', () => gulp
   .src(COPY_PATH)
   .pipe(gulp.dest(BUILD_PATH)));
 
+gulp.task('delete-jasmine-files', () => gulp.src(['build/js/SpecRunner.html', 'build/js/_spec.js'], {
+    read: false, allowEmpty: true,
+  })
+    .pipe(clean()));
+
+gulp.task('copy-jasmine-files', () => gulp
+  .src('source/spec/**/*')
+  .pipe(gulp.dest('build/js/')));
+
 // SCSS automation
 gulp.task('styles', () => gulp.src(SCSS_PATH)
   .pipe(plumber(function (err) {
@@ -181,8 +191,10 @@ gulp.task('server', () => {
   });
   
   gulp.watch('/*.md', gulp.series('readme'));
-  gulp.watch('source/js/PageVariability/**/*.js', gulp.series('script'));
-  gulp.watch('source/js/PageMarket/**/*.js', gulp.series('script2'));
+  gulp.watch('source/spec/**/*.html', gulp.series('script', 'delete-jasmine-files' ,'copy-jasmine-files'));
+  gulp.watch('source/spec/**/*.js', gulp.series('script', 'delete-jasmine-files' ,'copy-jasmine-files'));
+  gulp.watch('source/js/PageVariability/**/*.js', gulp.series('script','delete-jasmine-files',  'copy-jasmine-files'));
+  gulp.watch('source/js/PageMarket/**/*.js', gulp.series('script2', 'delete-jasmine-files', 'copy-jasmine-files'));
   gulp.watch(SCSS_PATH, gulp.series('styles'));
   gulp.watch('source/img/**/*', gulp.series('delete-photos'));
   gulp.watch('source/img/**/*', gulp.series('photo'));
@@ -196,5 +208,5 @@ gulp.task('server', () => {
 
 
 // Rebuild whole project and run the server
-gulp.task('default', gulp.series('delete-build', 'copy', 'script', 'script2', 'styles', 'photo', 'readme', 'server'), () => {
+gulp.task('default', gulp.series('delete-build', 'copy', 'copy-jasmine-files', 'script', 'script2', 'styles', 'photo', 'readme', 'server'), () => {
 });

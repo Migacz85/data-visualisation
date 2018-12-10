@@ -1,5 +1,5 @@
  
-# Data Visualisation
+# Data Visualization
 <img src="build/img/crypto.png" alt="crypto.png" height="100" align="center"> <br>
 This project is attempt to visualize current price of popular crypto currencies like
 bitcoin, etherum and litecoin. And also provide deep analyse of bitcoin.
@@ -69,7 +69,7 @@ The data used to power charts in this project is delivered by: https://www.quand
 On variability page (d3 library)
 - Progress bar - Showing user how many data is left to load from external source so he knows that hee need to wait
 - Current price chart - Showing user a current price on a chart so he knows how price was changing.
-- Current variability chart - Showing user a variablity in price for given days.
+- Current variability chart - Showing user a variability in price for given days.
 - Period range - Allows user to select a period range so he can see on chart period he is interested in
 
 On Bitcoin page Analyse: (d3, crossfilter, dc)
@@ -98,7 +98,7 @@ In order to use this project as a developer you need to have npm install.
 - <a href="https://gulpjs.com/ "> Gulp</a>
 
 I decided to learn and implement gulp in this particular project, because there was tremendous increase of small task to perform when adding technologies to project like:
-refreshing the website or Jasmine spec results, compile sass code on css, minify pictures, auto-prefixing  etc. If you are interested about details how gulp is configured in this project <a href="https://github.com/Migacz85/web-template">Read more</a>
+refreshing the website or Jasmine spec results, compile sass code on css, minify pictures, auto-prefixing etc. If you are interested about details how gulp is configured in this project <a href="https://github.com/Migacz85/web-template">Read more</a>
 
 - <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">Sass</a> 
 
@@ -119,7 +119,7 @@ You can see automated jasmine test results here:
 
 https://migacz85.github.io/data-visualisation/build/js/variability-test.html
 
-However site was manual tested also:
+However, site was manual tested also:
 
 Variability page:
 
@@ -190,7 +190,7 @@ All .js files from PageVariablity are bundled in to one file in to build/js/vari
 
 Same situation is with PageMarket folder but the .js file is bundled to build/js/market.js and this one is included in bitcoin.html
 
-I made it like that because I wanted to have option to create new .html including new multiple js files that are bundled to new bundle.js file. That workflow can provide some additional flexibility when coding using javascript projects. However, in moment of this writing I think that for the larger projects and much more power and flexibility technologies like webpack can be better solution. However this approach still can be beneficial in some situations.
+I made it like that because I wanted to have option to create new .html including new multiple js files that are bundled to new bundle.js file. That workflow can provide some additional flexibility when coding using javascript projects. However, in moment of this writing I think that for the larger projects and much more power and flexibility technologies like webpack can be better solution, however this approach still can be beneficial in some situations.
 
 #### What is the ordering of .js files in PageVariability folder? How they are concatenated ?
 

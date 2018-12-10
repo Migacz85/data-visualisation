@@ -2,9 +2,7 @@
 /* eslint no-undef: 0 no-unused-vars:0 */
 
 function drawPriceChart(data, id, width, height, currency) {
-  queue()
-    .defer(d3.csv, data)
-    .await(makeGraphs);
+  queue().defer(d3.csv, data).await(makeGraphs);
 
   function makeGraphs(error, transactionsData) {
     loading += 1;

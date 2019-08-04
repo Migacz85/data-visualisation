@@ -1,4 +1,3 @@
-
 const gainOrLossChart = dc.pieChart('#gain-loss-chart');
 const fluctuationChart = dc.barChart('#fluctuation-chart');
 const dayOfWeekChart = dc.rowChart('#day-of-week-chart');
@@ -20,7 +19,7 @@ if(!navigator.onLine) {
   alert('This website need to be connected to internet in order to work properly')
 }
  
-d3.csv('https://www.quandl.com/api/v3/datasets/BCHARTS/COINBASEEUR.csv?api_key=fzanZC3297Jsid-E8vCF').then((data) => {
+d3.csv('https://www.quandl.com/api/v3/datasets/BCHARTS/COINFALCONEUR.csv?api_key=fzanZC3297Jsid-E8vCF').then((data) => {
   
   // Hide loader, and show site content
     document.getElementById('loader').style.display = 'none';
